@@ -23,12 +23,12 @@
                 </a>
               </li>
             </ul> --}}
-          </nav>
+          </nav> 
           <div class="copyright float-right">
-            &copy;
+            Copyright &copy;
             <script>
               document.write(new Date().getFullYear())
-            </script>, made by <b>Brainers Team</b></a> for a better web.
+            </script>, made by <b>Brainers Team</b>. All Rights Reserved</a>
           </div>
         </div>
       </footer>
