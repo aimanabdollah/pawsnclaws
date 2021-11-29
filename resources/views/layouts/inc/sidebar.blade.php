@@ -9,25 +9,40 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
+          <li class="nav-item {{ Request::is('dashboard') ? 'active':'' }} ">
             <a class="nav-link" href="{{ url('dashboard') }}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{ Request::is('categories') ? 'active':'' }}">
             <a class="nav-link" href="{{ url('categories') }}">
-              <i class="material-icons">person</i>
+              <i class="material-icons">view_list</i>
               <p>Categories</p>
             </a>
           </li>
 
-             <li class="nav-item ">
+             <li class="nav-item {{ Request::is('add-category') ? 'active':'' }} ">
             <a class="nav-link" href="{{ url('add-category') }}">
-              <i class="material-icons">person</i>
+              <i class="material-icons">add_circle</i>
               <p>Add Category</p>
             </a>
           </li>
+
+          <li class="nav-item {{ Request::is('products') ? 'active':'' }}">
+            <a class="nav-link" href="{{ url('products') }}">
+              <i class="material-icons">view_list</i>
+              <p>Products</p>
+            </a>
+          </li>
+
+             <li class="nav-item {{ Request::is('add-product') ? 'active':'' }} ">
+            <a class="nav-link" href="{{ url('add-products') }}">
+              <i class="material-icons">add_circle</i>
+              <p>Add Product</p>
+            </a>
+          </li>
+          
 
 
 
