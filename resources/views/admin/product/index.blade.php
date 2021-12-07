@@ -10,7 +10,7 @@
         <table class="table table-boradered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Category</th>
                     <th>Name</th>
                     <th>Selling Price</th>
@@ -19,12 +19,13 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $counter = 0; ?>
                 @foreach ($products as $item)
                 <tr>
-                    <td>{{  $item->id }}</td>
+                    <td><?= ++$counter;?></td>
                      <td>{{  $item->category->name }}</td>
                      <td>{{  $item->name }}</td>
-                    <td>{{  $item->selling_price }}</td>
+                    <td>RM {{  $item->selling_price }}</td>
                     <td>
                         <img src="{{ asset('assets/uploads/products/'.$item->image) }}" class="cate-image" alt="image here">
                     </td>

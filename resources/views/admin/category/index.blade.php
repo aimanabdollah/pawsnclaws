@@ -10,7 +10,7 @@
         <table class="table table-boradered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Image</th>
@@ -18,9 +18,10 @@
                 </tr>
             </thead>
             <tbody>
+                  <?php $counter = 0; ?>
                 @foreach ($category as $item)
                 <tr>
-                    <td>{{  $item->id }}</td>
+                    <td><?= ++$counter;?></td>
                     <td>{{  $item->name }}</td>
                     <td>{{  $item->description }}</td>
                     <td>

@@ -49,10 +49,10 @@
                     <input type="text" class="form-control" value="{{ $products->slug }}" name="slug">
                 </div>
                 
-                <div class="col-md-12 mb-3">  
+                {{-- <div class="col-md-12 mb-3">  
                     <label for="">Small Description</label>
                     <textarea name="small_description" rows="3" class="form-control">{{ $products->small_description }}</textarea>
-                </div>
+                </div> --}}
 
                 <div class="col-md-12 mb-3">  
                     <label for="">Description</label>
@@ -61,18 +61,18 @@
 
                  <div class="col-md-6 mb-3">  
                     <label for="">Original Price</label>
-                 <input type="number"class="form-control" value="{{ $products->original_price}}"  name="original_price">      
+                 <input type="number"class="form-control" value="{{ $products->original_price}}"  name="original_price"  min="0.00" max="10000.00" step="0.01">      
                 </div>
 
                  <div class="col-md-6 mb-3">  
                     <label for="">Selling Price</label>
-                 <input type="number" class="form-control" value="{{ $products->selling_price }}" name="selling_price">      
+                 <input type="number" class="form-control" value="{{ $products->selling_price }}" name="selling_price"  min="0.00" max="10000.00" step="0.01">      
                 </div>
 
-                <div class="col-md-6 mb-3">  
+                {{-- <div class="col-md-6 mb-3">  
                     <label for="">Tax</label>
                  <input type="number" class="form-control" value="{{ $products->tax }}" name="tax">      
-                </div>
+                </div> --}}
 
                 <div class="col-md-6 mb-3">  
                     <label for="">Quantity</label>
@@ -80,7 +80,7 @@
                 </div>
 
 
-                <div class="col-md-6 mb-3">
+                {{-- <div class="col-md-6 mb-3">
                     <label for="">Status</label>
                     <input type="checkbox" {{ $products->status =="1" ? 'checked': '' }} name="status">
                 </div>
@@ -90,14 +90,14 @@
                 <div class="col-md-6 mb-3">
                     <label for="">Popular</label>
                     <input type="checkbox" {{ $products->popular =="1" ? 'checked': '' }} name="popular">
-                </div>
+                </div> --}}
 
                 <div class="col-md-12 mb-3">
                     <label for="">Meta Title</label>
                     <input type="text" class="form-control" value="{{ $products->meta_title }}" name="meta_title">
                 </div>
 
-                <div class="col-md-12 mb-3">
+                {{-- <div class="col-md-12 mb-3">
                     <label for="">Meta Keywords</label>
                     <textarea name="meta_keywords" rows="3" class="form-control">{{ $products->meta_keywords }}</textarea> 
                 </div>
@@ -105,11 +105,11 @@
                 <div class="col-md-12 mb-3">
                     <label for="">Meta Description</label>
                     <textarea name="meta_description" rows="3" class="form-control">{{ $products->meta_description }}</textarea> 
-                </div>
+                </div> --}}
 
                
                  @if($products->image)
-                <img src="{{ asset('assets/uploads/products/'.$products->image) }}" alt="Product image">
+                <img src="{{ asset('assets/uploads/products/'.$products->image) }}" width="200" height="200" alt="Product image">
                 @endif
 
                 <div class="col-md-12">
