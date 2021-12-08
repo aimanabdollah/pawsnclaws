@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', "Paws'n Claws") }}</title>
+     <link rel="shortcut icon" type="image/jpg" href="https://image.flaticon.com/icons/png/512/64/64431.png"/>
 
 
     <!-- Fonts -->
@@ -18,6 +19,33 @@
  
      <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
      <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
+
+      <style>
+        body {
+        background-image: url(https://i.pinimg.com/originals/c5/83/d7/c583d701b9ac889796d5dcf2b9b67886.jpg);
+        
+        /* Full height */
+        /* height: 100%; */
+
+        /* Center and scale the image nicely */
+        /* background-position: center;
+      
+        background-size: cover; */
+
+         min-height: 100%;
+         min-width: 1024px;
+         background-repeat: no-repeat;
+         background-size: cover;
+            /* Set up proportionate scaling */
+            width: 100%;
+            height: auto;
+                
+            /* Set up positioning */
+            position: fixed;
+            top: 0;
+            left: 0;
+    }
+  </style>
 </head>
 <body>
     <div id="app">

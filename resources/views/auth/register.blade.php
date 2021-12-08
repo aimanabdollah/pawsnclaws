@@ -11,6 +11,11 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                          <center><img src="assets/logo/logo.png"  width="150" 
+                            style=" margin-bottom: 3px" 
+                            alt="">
+                         <h2  style=" margin-bottom: 25px">Pet Shop Management System</h2></center>
+
                         <div class="form-group row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 

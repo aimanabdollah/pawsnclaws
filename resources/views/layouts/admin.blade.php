@@ -13,7 +13,9 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 
      <link href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
-      <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
+     <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/jpg" href="https://image.flaticon.com/icons/png/512/64/64431.png"/>
     
 </head>
 <body>

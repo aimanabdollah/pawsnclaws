@@ -1,4 +1,4 @@
-  <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -36,7 +36,7 @@
             </a>
           </li>
 
-             <li class="nav-item {{ Request::is('add-product') ? 'active':'' }} ">
+             <li class="nav-item {{ Request::is('add-products') ? 'active':'' }} ">
             <a class="nav-link" href="{{ url('add-products') }}">
               <i class="material-icons">add_circle</i>
               <p>Add Product</p>
