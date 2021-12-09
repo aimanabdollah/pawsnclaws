@@ -8,7 +8,7 @@ Will update the details of project
 
 - **[Aiman](https://github.com/aimanabdollah)**
 
-- **[Nadyra](######)** 
+- **[Nadyra](https://github.com/nadyranaaaaa)** 
 
 - **[Feezah](https://github.com/feezahmh)** 
 
