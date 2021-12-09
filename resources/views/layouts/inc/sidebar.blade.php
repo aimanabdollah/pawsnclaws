@@ -5,7 +5,10 @@
         Tip 2: you can also add an image using data-image tag
     -->
     <div class="logo"><a href="#" class="simple-text logo-normal">
-          Paws'n Claws
+      <img src="assets/logo/logo.png"  width="100" 
+                            style=" margin-bottom: 10px" 
+                            alt="">
+          <h4><b>Paws'n Claws</b></h4>
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
