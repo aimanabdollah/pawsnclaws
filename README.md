@@ -8,11 +8,11 @@ Will update the details of project
 
 - **[Aiman](https://github.com/aimanabdollah)**
 
-- **[Nadyra](######)** 
+- **[Nadyra](https://github.com/nadyranaaaaa)** 
 
-- **[Feezah](#####)** 
+- **[Feezah](https://github.com/feezahmh)** 
 
-- **[Yuggen](#####)** 
+- **[Yuggen](https://github.com/Yuggen17)** 
 
 
 
