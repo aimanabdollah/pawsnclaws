@@ -12,7 +12,7 @@ Will update the details of project
 
 - **[Feezah](https://github.com/feezahmh)** 
 
-- **[Yuggen](#####)** 
+- **[Yuggen](https://github.com/Yuggen17)** 
 
 
 
