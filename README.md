@@ -10,7 +10,7 @@ Will update the details of project
 
 - **[Nadyra](######)** 
 
-- **[Feezah](#####)** 
+- **[Feezah](https://github.com/feezahmh)** 
 
 - **[Yuggen](#####)** 
 
