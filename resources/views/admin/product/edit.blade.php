@@ -74,13 +74,9 @@
                  <input type="number" class="form-control" value="{{ $products->tax }}" name="tax">      
                 </div> --}}
 
-                <div class="col-md-6 mb-3">  
-                    <label for="">Quantity</label>
-                 <input type="number" class="form-control" value="{{ $products->qty }}" name="qty">      
-                </div>
+           
 
-
-                {{-- <div class="col-md-6 mb-3">
+                <div class="col-md-6 mb-3">
                     <label for="">Status</label>
                     <input type="checkbox" {{ $products->status =="1" ? 'checked': '' }} name="status">
                 </div>
@@ -90,9 +86,15 @@
                 <div class="col-md-6 mb-3">
                     <label for="">Popular</label>
                     <input type="checkbox" {{ $products->popular =="1" ? 'checked': '' }} name="popular">
-                </div> --}}
+                </div>
 
-                <div class="col-md-12 mb-3">
+                <div class="col-md-6 mb-3">  
+                    <label for="">Quantity</label>
+                 <input type="number" class="form-control" value="{{ $products->qty }}"  min="0" max="10000" step="1" name="qty">      
+                </div>
+
+
+                <div class="col-md-6 mb-3">
                     <label for="">Meta Title</label>
                     <input type="text" class="form-control" value="{{ $products->meta_title }}" name="meta_title">
                 </div>

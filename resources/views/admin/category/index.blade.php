@@ -33,7 +33,7 @@
                     </td>
                     <td><center>
                         <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-info ">Edit</a>
-                        <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</a>
+                        <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this category?')">Delete</a>
                     </center>
                     </td>
                 </tr>

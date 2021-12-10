@@ -44,8 +44,8 @@ class ProductController extends Controller
         $products->selling_price = $request->input('selling_price');
         // $products->tax = $request->input('tax');
         $products->qty = $request->input('qty');
-        // $products->status = $request->input('status') == TRUE? '1':'0';
-        // $products->popular = $request->input('popular') == TRUE? '1':'0';
+        $products->status = $request->input('status') == TRUE? '1':'0';
+        $products->popular = $request->input('popular') == TRUE? '1':'0';
         $products->meta_title = $request->input('meta_title');
         // $products->meta_keywords = $request->input('meta_keywords');
         // $products->meta_description = $request->input('meta_description');
@@ -92,8 +92,8 @@ class ProductController extends Controller
             $products->selling_price = $request->input('selling_price');
             // $products->tax = $request->input('tax');
             $products->qty = $request->input('qty');
-            // $products->status = $request->input('status') == TRUE? '1':'0';
-            // $products->popular = $request->input('popular') == TRUE? '1':'0';
+            $products->status = $request->input('status') == TRUE? '1':'0';
+            $products->popular = $request->input('popular') == TRUE? '1':'0';
             $products->meta_title = $request->input('meta_title');
             // $products->meta_keywords = $request->input('meta_keywords');
             // $products->meta_description = $request->input('meta_description');
