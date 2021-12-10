@@ -2,19 +2,23 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">
-        <h4>Category Page</h4>
-        <hr>
+
+    <div class="col-12">
+                <h3>Category List
+                  <a href="{{ url('add-category') }}" class="btn btn-primary float-right" style="margin-right: 4%">Add New Category</a></h3>
     </div>
+
+      <hr>
     <div class="card-body">
         <table class="table table-boradered table-striped">
+           
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Image</th>
-                    <th>Action</th>
+                    <th><center>Category Name</center></th>
+                    <th><center>Description</center></th>
+                    <th><center>Image</center></th>
+                    <th><center>Action</center></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,15 +26,15 @@
                 @foreach ($category as $item)
                 <tr>
                     <td><?= ++$counter;?></td>
-                    <td>{{  $item->name }}</td>
-                    <td>{{  $item->description }}</td>
-                    <td>
+                    <td><center>{{  $item->name }}</center></td>
+                    <td><center>{{  $item->description }}</center></td>
+                    <td><center>
                         <img src="{{ asset('assets/uploads/category/'.$item->image) }}" class="cate-image" alt="image here">
                     </td>
-                    <td>
-                        <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger">Delete</a>
-                       
+                    <td><center>
+                        <a href="{{ url('edit-category/'.$item->id) }}" class="btn btn-info ">Edit</a>
+                        <a href="{{ url('delete-category/'.$item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</a>
+                    </center>
                     </td>
                 </tr>
                @endforeach

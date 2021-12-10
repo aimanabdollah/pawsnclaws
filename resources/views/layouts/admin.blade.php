@@ -41,13 +41,36 @@
     <script src="{{ asset('admin/js/perfect-scrollbar.jquery.min.js') }}" defer></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   @if (session('status'))
+
+   {{-- <script>
+        $('.delete-confirm').on('click', function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+    swal({
+        title: 'Are you sure?',
+        text: 'This record and it`s details will be permanantly deleted!',
+        icon: 'warning',
+        buttons: ["Cancel", "Yes!"],
+    }).then(function(value) {
+        if (value) {
+            window.location.href = url;
+        }
+    });
+  });
+
+   </script> --}}
+ 
+  
+    @if (session('status'))
    <script>
      swal("{{session('status')  }}");
    </script>
     
        
    @endif
+
+
+
    
    
    

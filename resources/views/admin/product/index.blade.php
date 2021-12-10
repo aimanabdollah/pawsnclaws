@@ -2,20 +2,23 @@
 
 @section('content')
 <div class="card">
-    <div class="card-body">
-        <h4>Product Page</h4>
-        <hr>
+   <div class="col-12">
+                <h3>Product List
+                  <a href="{{ url('add-products') }}" class="btn btn-primary float-right" style="margin-right: 7.5%">Add New Product</a></h3>
+                  
     </div>
+    <hr>
     <div class="card-body">
         <table class="table table-boradered table-striped">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Category</th>
-                    <th>Name</th>
-                    <th>Selling Price</th>
-                    <th>Image</th>
-                    <th>Action</th>
+                    <th><center>Category</center></th>
+                    <th><center>Product Name</center></th>
+                    <th><center>Selling Price</center></th>
+                    <th><center>Image</center></th>
+                    <th><center>Action</center></th>
+                     
                 </tr>
             </thead>
             <tbody>
@@ -23,15 +26,17 @@
                 @foreach ($products as $item)
                 <tr>
                     <td><?= ++$counter;?></td>
-                     <td>{{  $item->category->name }}</td>
-                     <td>{{  $item->name }}</td>
-                    <td>RM {{  $item->selling_price }}</td>
-                    <td>
+                     <td><center>{{  $item->category->name }}</center></td>
+                     <td><center>{{  $item->name }}</center></td>
+                    <td><center>RM {{  $item->selling_price }}</center></td>
+                    <td><center>
                         <img src="{{ asset('assets/uploads/products/'.$item->image) }}" class="cate-image" alt="image here">
-                    </td>
-                    <td>
-                        <a href="{{  url('edit-product/'.$item->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <a href="{{ url('delete-product/'.$item->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                    </td></center>
+                    <td><center>
+                          <a href="{{  url('edit-product/'.$item->id) }}" class="btn btn-info">Edit</a>
+                          <a href="{{ url('delete-product/'.$item->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this product?')">Delete</a>
+                    </center>
+                      
                        
                     </td>
                 </tr>
@@ -40,4 +45,5 @@
         </table>
     </div>
 </div>
+
 @endsection

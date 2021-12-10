@@ -56,7 +56,8 @@
                 </div>
 
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <a href="{{ url('categories') }}" class="btn btn-danger ">Cancel</a>
                 </div>
             
             </div>

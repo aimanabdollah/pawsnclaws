@@ -118,7 +118,8 @@
                 </div>
 
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Update</button>
+                      <a href="{{ url('products') }}" class="btn btn-danger ">Cancel</a>
                 </div>
 
            
