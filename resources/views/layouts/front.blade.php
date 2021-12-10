@@ -17,14 +17,24 @@
      <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
      <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
 
-    {{-- <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
-     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet"> --}}
-
+     <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
+     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
+{{-- 
       <link href="{{ asset('frontend/css/owl.carousel.css') }}" rel="stylesheet">
-     <link href="{{ asset('frontend/css/owl.theme.default.css') }}" rel="stylesheet">
+     <link href="{{ asset('frontend/css/owl.theme.default.css') }}" rel="stylesheet"> --}}
 
     <link rel="shortcut icon" type="image/jpg" href="https://image.flaticon.com/icons/png/512/64/64431.png"/>
-    
+    <style>
+      a{
+        text-decoration:none !important;
+        color: black;
+
+      }
+
+
+
+
+    </style>
 </head>
 <body>
   @include('layouts.inc.frontnavbar')
@@ -33,12 +43,12 @@
                 @yield('content')
             </div>
 
-     {{-- <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script> --}}
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
+     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
      <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
-     {{-- <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script> --}}
-      <script src="{{ asset('frontend/js/owl.carousel.js') }}" defer></script>
+     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script>
+      {{-- <script src="{{ asset('frontend/js/owl.carousel.js') }}" defer></script> --}}
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   
