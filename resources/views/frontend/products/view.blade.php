@@ -30,10 +30,13 @@
                         </h2>
 
                         <hr>
-                        <label class="me-3">Original Price:<s> RM {{ $products->original_price }}</s></label>
-                        <label class="fw-bold">Selling Price: RM {{ $products->selling_price }}</label>
+                        <label class="me-3"><b>Price: </b><s> RM {{ $products->original_price }}</s></label>
+                        <label class="fw-bold">RM {{ $products->selling_price }}</label>
                         <p class="mt-3">
-                            {!! $products->description !!}
+                            <b>Brand: </b>{{ $products->small_description }}
+                        </p>
+                        <p class="mt-3">
+                            <b>Category: </b>{{ $products->category->name }}
                         </p>
 
                         <hr>
@@ -43,24 +46,31 @@
                             <label class="badge bg-danger">Out of stock</label>
                         @endif
 
+                        <input type="hidden" class="productid" value="{{ $products->id }}">
                         <div class="row mt-2">
                             <div class="col-md-2">
                                 <label for="Quantity">Quantity</label>
-                                <div class="input-group text-center mb-3">
+                                <div class="input-group text-center mb-3" style="width:130px;">
                                     <span class="input-group-text">-</span>
-                                    <input type="text" name="quantity" value="1" class="form-control" />
+                                    <input type="text" name="quantity" value="1" class="form-control text-center" />
                                     <span class="input-group-text">+</span>
                                 </div>
                             </div>
                             <div class="col-md-10">
                                 <br />
-                                <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist</button>
-                                <button type="button" class="btn btn-primary me-3 float-start">Add to Cart</button>
+                                <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i
+                                        class="fa fa-heart"></i></button>
+                                <button type="button" class="btn btn-primary me-3 float-start">Add to Cart <i
+                                        class="fa fa-shopping-cart"></i></button>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <hr>
+                <h4>Description</h4>
+                {{ $products->description }}
+
             </div>
         </div>
     </div>

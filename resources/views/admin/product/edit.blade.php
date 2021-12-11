@@ -48,10 +48,12 @@
                         <input type="text" class="form-control" value="{{ $products->slug }}" name="slug">
                     </div>
 
-                    {{-- <div class="col-md-12 mb-3">  
-                    <label for="">Small Description</label>
-                    <textarea name="small_description" rows="3" class="form-control">{{ $products->small_description }}</textarea>
-                </div> --}}
+                    <div class="col-md-12 mb-3">
+                        <label for="">Brand</label>
+                        <input type="text" class="form-control" value="{{ $products->small_description }}"
+                            name="small_description">
+
+                    </div>
 
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
