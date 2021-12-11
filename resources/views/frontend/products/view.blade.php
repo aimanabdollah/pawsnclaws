@@ -12,7 +12,7 @@
 
 
     <div class="container">
-        <div class="card shadow">
+        <div class="card shadow product_data">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 border-right">
@@ -49,6 +49,7 @@
                         {{-- <input type="hidden" class="productid" value="{{ $products->id }}"> --}}
                         <div class="row mt-2">
                             <div class="col-md-2">
+                                <input type="hidden" value="{{ $products->id }}" class="prod_id">
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width:130px;">
 
@@ -62,7 +63,7 @@
                                         </button>
                                     </span>
                                     <input type="text" id="quantity" name="quantity"
-                                        class="form-control input-number text-center" value="0" min="1" max="10">
+                                        class="form-control input-number text-center" value="1" min="1" max="10">
                                     <span class="input-group-btn">
                                         <button type="button" class="quantity-right-plus btn btn-primary btn-number"
                                             data-type="plus" data-field=""> <i class="fa fa-plus"></i>
@@ -77,10 +78,10 @@
                             </div>
                             <div class="col-md-9">
                                 <br />
+                                <button type="button" class="btn btn-danger me-3 addToCartBtn float-start">Add to Cart
+                                    <i class="fa fa-shopping-cart"></i></button>
                                 <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i
                                         class="fa fa-heart"></i></button>
-                                <button type="button" class="btn btn-danger me-3 float-start">Add to Cart <i
-                                        class="fa fa-shopping-cart"></i></button>
                             </div>
                         </div>
 
@@ -117,6 +118,35 @@
         // });
 
         $(document).ready(function() {
+
+            $('.addToCartBtn').click(function(e) {
+                e.preventDefault();
+
+                var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                var product_qty = $(this).closest('.product_data').find('.input-number').val();
+
+                // alert(product_id);
+                // alert(product_qty);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "/add-to-cart",
+                    data: {
+                        'product_id': product_id,
+                        'product_qty': product_qty,
+                    },
+                    success: function(response) {
+                        swal(response.status);
+
+                    }
+                });
+            });
 
             var quantitiy = 0;
             $('.quantity-right-plus').click(function(e) {
