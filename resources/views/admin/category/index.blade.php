@@ -33,9 +33,10 @@
                 </thead>
                 <tbody>
                     <?php $counter = 0; ?>
+
                     @foreach ($category as $item)
                         <tr>
-                            <td><?= ++$counter ?></td>
+                            <td>{{ ($category->currentPage() - 1) * $category->perPage() + $loop->iteration }}</td>
                             <td>
                                 <center>{{ $item->name }}</center>
                             </td>
@@ -58,6 +59,12 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="row">
+                <div class="mx-auto mt-3">
+                    {!! $category->links() !!}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

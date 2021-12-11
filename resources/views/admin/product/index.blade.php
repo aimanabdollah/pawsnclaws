@@ -37,7 +37,7 @@
                     <?php $counter = 0; ?>
                     @foreach ($products as $item)
                         <tr>
-                            <td><?= ++$counter ?></td>
+                            <td>{{ ($products->currentPage() - 1) * $products->perPage() + $loop->iteration }}</td>
                             <td>
                                 <center>{{ $item->category->name }}</center>
                             </td>
@@ -66,6 +66,11 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="row">
+                <div class="mx-auto mt-3">
+                    {!! $products->links() !!}
+                </div>
+            </div>
         </div>
     </div>
 
