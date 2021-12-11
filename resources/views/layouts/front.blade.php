@@ -50,6 +50,7 @@
         body {
             background-image: url(https://i.pinimg.com/originals/c5/83/d7/c583d701b9ac889796d5dcf2b9b67886.jpg);
 
+
             /* Full height */
             /* height: 100%; */
 
@@ -74,11 +75,13 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}" defer></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
+    <script src="{{ asset('frontend/js/jquery-3.6.0.min.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
 
-    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}" defer></script>
-    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}" defer></script>
+    <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     {{-- <script src="{{ asset('frontend/js/owl.carousel.js') }}" defer></script> --}}
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -89,6 +92,7 @@
             swal("{{ session('status') }}");
         </script>
     @endif
+
 
     @yield('scripts')
 

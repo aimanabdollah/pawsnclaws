@@ -46,21 +46,40 @@
                             <label class="badge bg-danger">Out of stock</label>
                         @endif
 
-                        <input type="hidden" class="productid" value="{{ $products->id }}">
+                        {{-- <input type="hidden" class="productid" value="{{ $products->id }}"> --}}
                         <div class="row mt-2">
                             <div class="col-md-2">
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width:130px;">
-                                    <span class="input-group-text">-</span>
-                                    <input type="text" name="quantity" value="1" class="form-control text-center" />
-                                    <span class="input-group-text">+</span>
+
+                                    {{-- <button class="input-group-text decrement-btn">-</button>
+                                    <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
+                                    <button class="input-group-text increment-btn">+</button> --}}
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-primary btn-number"
+                                            data-type="minus" data-field="">
+                                            <i class="fa fa-minus"></i>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="quantity"
+                                        class="form-control input-number text-center" value="0" min="1" max="10">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-primary btn-number"
+                                            data-type="plus" data-field=""> <i class="fa fa-plus"></i>
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+
+
+
+
                                 </div>
                             </div>
-                            <div class="col-md-10">
+                            <div class="col-md-9">
                                 <br />
                                 <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i
                                         class="fa fa-heart"></i></button>
-                                <button type="button" class="btn btn-primary me-3 float-start">Add to Cart <i
+                                <button type="button" class="btn btn-danger me-3 float-start">Add to Cart <i
                                         class="fa fa-shopping-cart"></i></button>
                             </div>
                         </div>
@@ -70,8 +89,67 @@
                 <hr>
                 <h4>Description</h4>
                 {{ $products->description }}
+                <div class="col-lg-2">
+                    <div class="input-group">
+
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        // $(document).ready(function() {
+        //     $('.increment-btn').click(function(e) {
+        //         e.preventDefault();
+
+        //         var inc_value = $('.qty-input').val();
+        //         var value = parseInt(inc_value, 10);
+        //         value = isNan(value) ? 0 : value;
+        //         if (value < 10) {
+        //             value++;
+        //             $('.qty-input').val(value);
+        //         }
+        //     });
+        // });
+
+        $(document).ready(function() {
+
+            var quantitiy = 0;
+            $('.quantity-right-plus').click(function(e) {
+
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                $('#quantity').val(quantity + 1);
+
+
+                // Increment
+
+            });
+
+            $('.quantity-left-minus').click(function(e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 0) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
+
 @endsection
