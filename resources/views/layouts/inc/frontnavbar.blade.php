@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
+        {{-- <img src="https://i.pinimg.com/originals/8f/d0/95/8fd095ac4e439e36e45a671ce0e77264.jpg" width="50"
+            style=" margin-bottom: 10px" alt=""> --}}
+        <img src="{{ asset('assets/logo/logo.png') }}" alt="Category Image" width="50">
         <a class="navbar-brand" href="{{ url('/') }}">Paws'n Claws</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('category') }}">Category</a>
@@ -21,11 +24,13 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="{{ url('category/food-drink') }}">Food & Drink</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-food-drink') }}">Food & Drink</a>
+                        </li>
                         <li><a class="dropdown-item" href="{{ url('category/pet-toy') }}">Toy</a></li>
-                        <li><a class="dropdown-item" href="{{ url('category/accessories') }}">Accessories</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-accessories') }}">Accessories</a>
+                        </li>
                         <li><a class="dropdown-item" href="{{ url('category/pet-medicine') }}">Medicine</a></li>
-                        <li><a class="dropdown-item" href="{{ url('category/shelter') }}">Shelter</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-shelter') }}">Shelter</a></li>
 
                     </ul>
                 </li>

@@ -37,6 +37,12 @@
                       <p>Products</p>
                   </a>
               </li>
+              {{-- <li class="nav-item {{ Request::is('orders') ? 'active' : '' }}">
+                  <a class="nav-link" href="#">
+                      <i class="material-icons">view_list</i>
+                      <p>Orders</p>
+                  </a>
+              </li> --}}
 
               {{-- <li class="nav-item {{ Request::is('add-products') ? 'active':'' }} ">
             <a class="nav-link" href="{{ url('add-products') }}">

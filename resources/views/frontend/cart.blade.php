@@ -24,7 +24,7 @@
             <div class="card-body">
                 @foreach ($cartitems as $item)
 
-                    <div class="row">
+                    <div class="row product_data">
                         <div class="col-md-2">
                             <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}" height="70px"
                                 width="70px" alt="">
@@ -33,10 +33,10 @@
                             <h6>{{ $item->products->name }}</h6>
                         </div>
                         <div class="col-md-3">
-                            <input type="hidden" class="prod_id">
+                            <input type="hidden" value="{{ $item->prod_id }}" class="prod_id">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3" style="width:130px;">
-                                <span class="input-group-btn">
+                                {{-- <span class="input-group-btn">
                                     <button type="button" class="quantity-left-minus btn btn-primary btn-number"
                                         data-type="minus" data-field="">
                                         <i class="fa fa-minus"></i>
@@ -50,11 +50,13 @@
                                         data-type="plus" data-field=""> <i class="fa fa-plus"></i>
                                         <span class="glyphicon glyphicon-plus"></span>
                                     </button>
-                                </span>
+                                </span> --}}
+                                <input type="number" class="form-control" value="{{ $item->prod_qty }}" min="1"
+                                    max="10000" step="1" name="qty">
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <h3>Remove</h3>
+                            <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
                         </div>
                     </div>
                 @endforeach
