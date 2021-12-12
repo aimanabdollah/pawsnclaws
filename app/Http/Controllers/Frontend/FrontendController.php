@@ -23,6 +23,12 @@ class FrontendController extends Controller
         return view('frontend.category', compact('category'));
     }
 
+     public function product()
+    {
+        $products = Product::where('status', '1')->get();
+        return view('frontend.product', compact('products'));
+    }
+
     public function viewcategory($slug)
     {
         if(Category::where('slug', $slug)->exists())
@@ -39,6 +45,7 @@ class FrontendController extends Controller
         // $products = Product::where('status', '1')->get();
         // return view('frontend.category', compact('category'));
     }
+    
 
     public function productview($cate_slug, $prod_slug)
     {

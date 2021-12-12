@@ -26,6 +26,7 @@ use App\Models\Product;
 
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
+Route::get('product', [FrontendController::class, 'product']);
 Route::get('category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
 
@@ -36,7 +37,8 @@ Auth::routes();
 
 Route::post('add-to-cart',[CartController::class, 'addProduct']);
 Route::middleware(['auth'])->group(function() {
-    
+    Route::get('cart', [CartController::class, 'viewcart']);
+
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

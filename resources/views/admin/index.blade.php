@@ -12,7 +12,7 @@
                                 <i class="material-icons">category</i>
                             </div>
                             <p class="card-category">Total Category</p>
-                            <h3 class="card-title">5</h3>
+                            <h3 class="card-title">{{ $category }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -28,7 +28,7 @@
                                 <i class="material-icons">shopping_bag</i>
                             </div>
                             <p class="card-category">Total Product</p>
-                            <h3 class="card-title">36</h3>
+                            <h3 class="card-title">{{ $product }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -44,7 +44,7 @@
                                 <i class="material-icons">shopping_cart</i>
                             </div>
                             <p class="card-category">Total Order</p>
-                            <h3 class="card-title">7</h3>
+                            <h3 class="card-title">0</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -60,7 +60,7 @@
                                 <i class="material-icons">payments</i>
                             </div>
                             <p class="card-category">Total Sales</p>
-                            <h3 class="card-title">RM 350.00</h3>
+                            <h3 class="card-title">RM 0.00</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">

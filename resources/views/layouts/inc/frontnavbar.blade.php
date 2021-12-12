@@ -10,8 +10,32 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('category') }}">Category</a>
+                </li> --}}
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{{ url('category/food-drink') }}">Food & Drink</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-toy') }}">Toy</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/accessories') }}">Accessories</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-medicine') }}">Medicine</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/shelter') }}">Shelter</a></li>
+
+                    </ul>
+                </li>
+
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="{{ url('product') }}">Product</a>
+                </li> --}}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('cart') }}">Cart</a>
                 </li>
 
                 <ul class="navbar-nav ml-auto">
@@ -49,12 +73,8 @@
                                         @csrf
                                     </form>
                                 </li>
-
-
                             </ul>
                         </li>
-
-
                     @endguest
                 </ul>
             </ul>

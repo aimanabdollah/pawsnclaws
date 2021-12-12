@@ -6,7 +6,17 @@
 
     <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
-            <h6 class="mb-0">Collections / {{ $products->category->name }} / {{ $products->name }}</h6>
+            <h6 class="mb-0">
+                <a href="{{ url('category') }}">
+                    Collections
+                </a> /
+                <a href="{{ url('category/' . $products->category->slug) }}">
+                    {{ $products->category->name }}
+                </a> /
+                <a href="{{ url('category/' . $products->category->slug . '/' . $products->slug) }}">
+                    {{ $products->name }}
+                </a>
+            </h6>
         </div>
     </div>
 
@@ -70,10 +80,6 @@
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
                                     </span>
-
-
-
-
                                 </div>
                             </div>
                             <div class="col-md-9">
@@ -101,7 +107,7 @@
     </div>
 @endsection
 
-@section('scripts')
+{{-- @section('scripts')
     <script>
         // $(document).ready(function() {
         //     $('.increment-btn').click(function(e) {
@@ -182,4 +188,4 @@
         });
     </script>
 
-@endsection
+@endsection --}}

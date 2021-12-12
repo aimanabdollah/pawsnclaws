@@ -8,9 +8,18 @@
 @section('content')
     <div class="py-3 mb-4 shadow-sm bg-warning border-top">
         <div class="container">
-            <h6 class="mb-0">Collections / {{ $category->name }}</h6>
+            <h6 class="mb-0">
+                <a href="{{ url('category') }}">
+                    Collections
+                </a> /
+                <a href="{{ url('category/' . $category->slug) }}">
+                    {{ $category->name }}
+                </a>
+            </h6>
         </div>
     </div>
+
+
     <div class="py-5">
         <div class="container">
             <div class="row">
@@ -25,10 +34,10 @@
                                 <a href="{{ url('category/' . $category->slug . '/' . $prod->slug) }}">
                                     <h5>{{ $prod->name }}</h5>
                                 </a>
-                                <span class="float-start">RM{{ $prod->selling_price }}</span>
-                                <span class="float-end"><s>RM{{ $prod->original_price }}</s></span>
+                                <span class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
+                                <span
+                                    class="badge rounded-pill bg-info text-dark float-end">{{ $prod->small_description }}</span>
                             </div>
-
                         </div>
                     </div>
                 @endforeach

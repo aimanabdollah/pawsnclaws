@@ -17,10 +17,14 @@
                             <div class="card">
                                 <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product Image"
                                     style="height: 250px">
-                                <div class="card-body">
+                                <div class="card-body shadow">
                                     <h5>{{ $prod->name }}</h5>
-                                    <span class="float-start">RM{{ $prod->selling_price }}</span>
-                                    <span class="float-end"><s>RM{{ $prod->original_price }}</s></span>
+                                    <span style="margin:3px;"
+                                        class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
+                                    <span style="margin:3px;"
+                                        class="badge rounded-pill bg-warning text-dark float-start"><s>RM{{ $prod->original_price }}</s></span>
+                                    <span style="margin:3px;"
+                                        class="badge rounded-pill bg-info text-dark float-end">{{ $prod->category->name }}</span>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +43,7 @@
                                 <div class="card">
                                     <img src="{{ asset('assets/uploads/category/' . $category->image) }}"
                                         alt="Category Image" style="height: 250px">
-                                    <div class="card-body">
+                                    <div class="card-body shadow">
                                         <h5>{{ $category->name }}</h5>
                                         <p>{{ $category->description }}</p>
                                     </div>

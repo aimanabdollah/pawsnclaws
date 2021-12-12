@@ -83,6 +83,8 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     {{-- <script src="{{ asset('frontend/js/owl.carousel.js') }}" defer></script> --}}
+    <script src="{{ asset('frontend/js/custom.js') }}" defer></script>
+
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
