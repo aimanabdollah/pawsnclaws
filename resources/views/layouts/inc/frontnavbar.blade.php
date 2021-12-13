@@ -30,7 +30,7 @@
                         <li><a class="dropdown-item" href="{{ url('category/pet-accessories') }}">Accessories</a>
                         </li>
                         <li><a class="dropdown-item" href="{{ url('category/pet-medicine') }}">Medicine</a></li>
-                        <li><a class="dropdown-item" href="{{ url('category/pet-shelter') }}">Shelter</a></li>
+                        <li><a class="dropdown-item" href="{{ url('category/pet-cage') }}">Cage</a></li>
 
                     </ul>
                 </li>

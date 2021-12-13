@@ -66,20 +66,19 @@
                                     {{-- <button class="input-group-text decrement-btn">-</button>
                                     <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
                                     <button class="input-group-text increment-btn">+</button> --}}
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-left-minus btn btn-primary btn-number"
-                                            data-type="minus" data-field="">
-                                            <i class="fa fa-minus"></i>
-                                        </button>
-                                    </span>
+
+                                    <button type="button" class="decrement-btn input-group-text" data-type="minus"
+                                        data-field="">-
+
+                                    </button>
+
                                     <input type="text" id="quantity" name="quantity"
                                         class="form-control input-number text-center" value="1" min="1" max="10">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="quantity-right-plus btn btn-primary btn-number"
-                                            data-type="plus" data-field=""> <i class="fa fa-plus"></i>
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </span>
+
+                                    <button type="button" class="increment-btn input-group-text" data-type="plus"
+                                        data-field="">+
+                                    </button>
+
                                 </div>
                             </div>
                             <div class="col-md-9">

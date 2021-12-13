@@ -22,44 +22,65 @@
     <div class="container my-5">
         <div class="card shadow product_data">
             <div class="card-body">
-                @foreach ($cartitems as $item)
+                <h3>Shopping Cart</h3>
+                @php
+                    $total = 0;
+                @endphp
 
-                    <div class="row product_data">
-                        <div class="col-md-2">
+                @foreach ($cartitems as $item)
+                    <div class="row product_data mt-4">
+                        <div class="col-md-2 my-auto">
                             <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}" height="70px"
                                 width="70px" alt="">
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-3 my-auto">
                             <h6>{{ $item->products->name }}</h6>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2 my-auto">
+                            <h6>RM {{ $item->products->selling_price }}</h6>
+                        </div>
+                        <div class="col-md-3 my-auto">
                             <input type="hidden" value="{{ $item->prod_id }}" class="prod_id">
                             <label for="Quantity">Quantity</label>
                             <div class="input-group text-center mb-3" style="width:130px;">
-                                {{-- <span class="input-group-btn">
-                                    <button type="button" class="quantity-left-minus btn btn-primary btn-number"
-                                        data-type="minus" data-field="">
-                                        <i class="fa fa-minus"></i>
-                                    </button>
-                                </span>
-                                <input type="text" id="quantity" name="quantity"
+
+                                {{-- <button type="button" class="decrement-btn input-group-text changeQuantity"
+                                    data-type="minus" data-field="">-
+                                </button>
+
+                                <input type="number" id="quantity" name="quantity"
                                     class="form-control input-number text-center" value="{{ $item->prod_qty }}" min="1"
                                     max="10">
-                                <span class="input-group-btn">
-                                    <button type="button" class="quantity-right-plus btn btn-primary btn-number"
-                                        data-type="plus" data-field=""> <i class="fa fa-plus"></i>
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
-                                </span> --}}
-                                <input type="number" class="form-control" value="{{ $item->prod_qty }}" min="1"
-                                    max="10000" step="1" name="qty">
+
+                                <button type="button" class="increment-btn input-group-text changeQuantity" data-type="plus"
+                                    data-field="">+
+                                </button> --}}
+
+
+                                <input type="number" id="qty-input" class="form-control changeQuantity text-center"
+                                    value="{{ $item->prod_qty }}" min="1" max="10" step="1" name="qty">
+
+                                {{-- <button class="input-group-text changeQuantity decrement-btn">-</button>
+                                <input type="text" name="quantity" class="form-control qty-input text-center"
+                                    value="{{ $item->prod_qty }}">
+                                <button class="input-group-text changeQuantity increment-btn">+</button> --}}
+
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 my-auto">
                             <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
                         </div>
                     </div>
+                    @php
+                        $total += $item->products->selling_price * $item->prod_qty;
+                    @endphp
                 @endforeach
+            </div>
+            <div class="card-footer">
+                <h6>Total Price: RM{{ $total }}
+
+                    <button class="btn btn-outline-success float-end">Proceed to Checkout</button>
+                </h6>
             </div>
         </div>
     </div>
