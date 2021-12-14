@@ -14,19 +14,21 @@
                 <div class="owl-carousel featured_carousel owl-theme">
                     @foreach ($featured_products as $prod)
                         <div class="item">
-                            <div class="card">
-                                <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product Image"
-                                    style="height: 250px">
-                                <div class="card-body shadow">
-                                    <h5>{{ $prod->name }}</h5>
-                                    <span style="margin:3px;"
-                                        class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
-                                    <span style="margin:3px;"
-                                        class="badge rounded-pill bg-warning text-dark float-start"><s>RM{{ $prod->original_price }}</s></span>
-                                    <span style="margin:3px;"
-                                        class="badge rounded-pill bg-info text-dark float-end">{{ $prod->category->name }}</span>
+                            <a href="{{ url('category/' . $prod->category->slug . '/' . $prod->slug) }}">
+                                <div class="card">
+                                    <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product Image"
+                                        style="height: 250px">
+                                    <div class="card-body shadow">
+                                        <h5>{{ $prod->name }}</h5>
+                                        <span style="margin:3px;"
+                                            class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
+                                        <span style="margin:3px;"
+                                            class="badge rounded-pill bg-warning text-dark float-start"><s>RM{{ $prod->original_price }}</s></span>
+                                        <span style="margin:3px;"
+                                            class="badge rounded-pill bg-info text-dark float-end">{{ $prod->category->name }}</span>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>

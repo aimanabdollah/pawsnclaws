@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\File;
 class CategoryController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
+        if($request->has('search')){
+               $category = \App\Models\Category::where('name', 'LIKE', '%' .$request->search.'%')->paginate(3);
+            
+        }else {
+               $category = \App\Models\Category::paginate(3);
+        }
         // $category = Category::all();
-        $category = \App\Models\Category::paginate(3);
+     
         return view('admin.category.index', compact('category'));
     }
 

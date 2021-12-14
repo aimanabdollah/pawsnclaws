@@ -10,9 +10,15 @@ use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = \App\Models\Product::paginate(3);
+         if($request->has('search')){
+               $products = \App\Models\Product::where('name', 'LIKE', '%' .$request->search.'%')->paginate(3);
+            
+        }else {
+               $products = \App\Models\Product::paginate(3);
+        }
+      
         return view('admin.product.index', compact('products'));
     }
 

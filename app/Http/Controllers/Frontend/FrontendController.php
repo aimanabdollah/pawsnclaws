@@ -17,15 +17,29 @@ class FrontendController extends Controller
         return view('frontend.index', compact('featured_products', 'featured_category'));
     }
 
-    public function category()
+    public function category(Request $request)
     {
-        $category = Category::where('status', '1')->get();
+        if($request->has('search')){
+               $category = \App\Models\Category::where('name', 'LIKE', '%' .$request->search.'%')->get();
+            
+        }else {
+             $category = Category::where('status', '1')->get();
+             
+        }
+       
         return view('frontend.category', compact('category'));
     }
 
-     public function product()
+     public function product(Request $request)
     {
-        $products = Product::where('status', '1')->get();
+        if($request->has('search')){
+               $products = \App\Models\Product::where('name', 'LIKE', '%' .$request->search.'%')->get();
+            
+        }else {
+             $products = Product::where('status', '1')->get();
+             
+        }
+       
         return view('frontend.product', compact('products'));
     }
 
@@ -46,7 +60,7 @@ class FrontendController extends Controller
         // $products = Product::where('status', '1')->get();
         // return view('frontend.category', compact('category'));
     }
-    
+  
 
     public function productview($cate_slug, $prod_slug)
     {

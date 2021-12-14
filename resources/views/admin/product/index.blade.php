@@ -3,11 +3,19 @@
 @section('content')
     <div class="card">
         <div class="col-12">
-            <h3>Product List
-                <a href="{{ url('add-products') }}" class="btn btn-primary float-right" style="margin-right: 7.5%">Add New
-                    Product</a>
-            </h3>
+            <h3>Product List </h3>
+            <a href="{{ url('add-products') }}" class="btn btn-primary float-right" style="margin-right: 7.5%">Add New
+                Product</a>
 
+            <div class="row g-3 align-items-center mt-2">
+                <div class="col-auto">
+                    <form action="/products" method="GET">
+                        <input type="search" id="inputPassword6" name="search" class="form-control"
+                            aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
+                            style="width:250px;">
+                    </form>
+                </div>
+            </div>
         </div>
         <hr>
         <div class="card-body">

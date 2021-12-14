@@ -11,6 +11,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>All Categories</h2>
+                    <div class="row g-3 align-items-center mt-2 mb-2">
+                        <div class="col-auto">
+                            <form action="/category" method="GET">
+                                <input type="search" id="inputPassword6" name="search" class="form-control"
+                                    aria-describedby="passwordHelpInline" placeholder="Search Category Name Here"
+                                    style="width:308px;">
+                            </form>
+                        </div>
+                    </div>
                     <div class="row">
                         @foreach ($category as $cate)
                             <div class="col-md-3 mb-3">

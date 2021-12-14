@@ -22,23 +22,27 @@
 
     <div class="py-5">
         <div class="container">
+
             <div class="row">
 
                 <h2>{{ $category->name }}</h2>
                 @foreach ($products as $prod)
                     <div class="col-md-3 mt-3">
-                        <div class="card">
-                            <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product Image"
-                                style="height: 250px">
-                            <div class="card-body">
-                                <a href="{{ url('category/' . $category->slug . '/' . $prod->slug) }}">
+                        <a href="{{ url('category/' . $category->slug . '/' . $prod->slug) }}">
+                            <div class="card">
+                                <img src="{{ asset('assets/uploads/products/' . $prod->image) }}" alt="Product Image"
+                                    style="height: 250px">
+                                <div class="card-body">
+
                                     <h5>{{ $prod->name }}</h5>
-                                </a>
-                                <span class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
-                                <span
-                                    class="badge rounded-pill bg-info text-dark float-end">{{ $prod->small_description }}</span>
+
+                                    <span
+                                        class="badge rounded-pill bg-danger float-start">RM{{ $prod->selling_price }}</span>
+                                    <span
+                                        class="badge rounded-pill bg-info text-dark float-end">{{ $prod->small_description }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

@@ -4,14 +4,26 @@
     <div class="card">
 
         <div class="col-12">
-            <h3>Category List
-                <a href="{{ url('add-category') }}" class="btn btn-primary float-right" style="margin-right: 4%">Add New
-                    Category</a>
-            </h3>
+            <h3>Category List</h3>
+            <a href="{{ url('add-category') }}" class="btn btn-primary float-right" style="margin-right: 4%">Add New
+                Category</a>
+
+            <div class="row g-3 align-items-center mt-2">
+                <div class="col-auto">
+                    <form action="/categories" method="GET">
+                        <input type="search" id="inputPassword6" name="search" class="form-control"
+                            aria-describedby="passwordHelpInline" placeholder="Search Category Name Here"
+                            style="width:250px;">
+                    </form>
+                </div>
+            </div>
+
         </div>
+
 
         <hr>
         <div class="card-body">
+
             <table class="table table-boradered table-striped">
 
                 <thead>
