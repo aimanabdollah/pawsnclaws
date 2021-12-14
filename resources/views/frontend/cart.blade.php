@@ -25,24 +25,65 @@
                 <h3>Shopping Cart</h3>
                 @php
                     $total = 0;
+                    $count = 0;
                 @endphp
+                <hr>
+                <div class="row mt-4">
+                    <div class="col-md-1 my-auto">
+                        <h6>
+                            <center>No.</center>
+                        </h6>
+                    </div>
+                    <div class="col-md-4 my-auto">
+                        <h6>
+                            Product Name
+                        </h6>
+                    </div>
+                    <div class="col-md-2 my-auto">
+                        <h6>Price</h6>
+                    </div>
+                    <div class="col-md-2 my-auto">
+                        <h6>Total Price</h6>
+                    </div>
+                    <div class="col-md-1 my-auto">
+                        <h6>Quantity</h6>
+                    </div>
+                    <div class="col-md-2 my-auto"></div>
+                </div>
+                <hr>
 
                 @foreach ($cartitems as $item)
-                    <div class="row product_data mt-4">
-                        <div class="col-md-2 my-auto">
+                    <div class="row product_data mt-2">
+
+                        <div class="col-md-1 my-auto">
+                            <center>
+                                {{ $count = $count + 1 }}.</center>
+                        </div>
+
+                        <div class="col-md-1 my-auto">
                             <img src="{{ asset('assets/uploads/products/' . $item->products->image) }}" height="70px"
                                 width="70px" alt="">
                         </div>
+
                         <div class="col-md-3 my-auto">
                             <h6>{{ $item->products->name }}</h6>
                         </div>
+
                         <div class="col-md-2 my-auto">
                             <h6>RM {{ $item->products->selling_price }}</h6>
                         </div>
-                        <div class="col-md-3 my-auto">
+
+                        <div class="col-md-2 my-auto">
+                            @php
+                                $price = $item->products->selling_price * $item->prod_qty;
+                            @endphp
+                            <h6>RM{{ number_format($price, 2) }}</h6>
+                        </div>
+
+                        <div class="col-md-1 my-auto">
                             <input type="hidden" value="{{ $item->prod_id }}" class="prod_id">
-                            <label for="Quantity">Quantity</label>
-                            <div class="input-group text-center mb-3" style="width:130px;">
+                            <label for="Quantity"></label>
+                            <div class="input-group text-center mb-3" style="width:80px;">
 
                                 {{-- <button type="button" class="decrement-btn input-group-text changeQuantity"
                                     data-type="minus" data-field="">-
@@ -67,9 +108,12 @@
 
                             </div>
                         </div>
+
                         <div class="col-md-2 my-auto">
-                            <button class="btn btn-danger delete-cart-item"><i class="fa fa-trash"></i> Remove</button>
+                            <button class="btn btn-danger delete-cart-item" style="margin-left: 30px"><i
+                                    class="fa fa-trash"></i> Remove</button>
                         </div>
+
                     </div>
                     @php
                         $total += $item->products->selling_price * $item->prod_qty;
@@ -77,7 +121,7 @@
                 @endforeach
             </div>
             <div class="card-footer">
-                <h6>Total Price: RM{{ $total }}
+                <h6>Total Amount: RM{{ number_format($total, 2) }}
 
                     <button class="btn btn-outline-success float-end">Proceed to Checkout</button>
                 </h6>

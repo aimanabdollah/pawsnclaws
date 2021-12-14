@@ -37,7 +37,7 @@ class CartController extends Controller
                 }
         }
         else{
-            return response()->json(['status' => "Login to Continue"]);
+            return response()->json(['status' => "Please Login to Continue"]);
         }
 
     }
