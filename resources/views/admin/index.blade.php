@@ -70,8 +70,42 @@
                     </div>
                 </div>
 
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div>
+                        <div class="card card-stats" id="piechart" style="width: 600px; height: 300px;"></div>
+                    </div>
+                </div>
+
+
+
             </div>
 
+        @endsection
+
+        @section('scripts')
+            <script>
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Category', 'No.of Product'],
+                        <?php echo $chartData; ?>
+
+                    ]);
+
+                    var options = {
+                        title: 'No. of Product by Category'
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                }
+            </script>
 
 
 

@@ -123,8 +123,10 @@
             <div class="card-footer">
                 <h6>Total Amount: RM{{ number_format($total, 2) }}
 
-                    <button class="btn btn-outline-success float-end">Proceed to Checkout</button>
+
+                    <a href="/"><button class="btn btn-success float-end">Continue Shopping</button></a>
                 </h6>
+                <button class="btn btn-danger">Proceed to Checkout</button>
             </div>
         </div>
     </div>

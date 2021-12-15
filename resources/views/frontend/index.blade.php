@@ -10,7 +10,8 @@
     <div class="py-5">
         <div class="container">
             <div class="row">
-                <h2>Featured Product</h2>
+                <h2>Featured Product<a href="/product"><button class="btn btn-success float-end"> See All
+                            Product</button></a> </h2>
                 <div class="owl-carousel featured_carousel owl-theme">
                     @foreach ($featured_products as $prod)
                         <div class="item">
