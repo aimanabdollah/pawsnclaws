@@ -11,6 +11,7 @@ class Order extends Model
 
     protected $table='orders';
     protected $fillable = [
+    'user_id',
     'fname',
     'lname',
     'email',
@@ -24,6 +25,7 @@ class Order extends Model
     'status',
     'message',
     'tracking_no',
+    'total_price',
 
     ];
 

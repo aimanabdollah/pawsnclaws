@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('user_id');  
             $table->string('fname');
             $table->string('lname');
             $table->string('email');
@@ -27,7 +28,8 @@ class CreateOrdersTable extends Migration
             $table->string('pincode');
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable(); 
-            $table->string('tracking_no');          
+            $table->string('tracking_no');     
+            $table->decimal('total_price', 8,2);     
             $table->timestamps();
         });
     }
