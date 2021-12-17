@@ -135,8 +135,7 @@
 
                     <a href="/"><button class="btn btn-success float-end">Continue Shopping</button></a>
                 </h6>
-                {{-- <a href="{{ url('checkout') }}"><button class="btn btn-danger">Proceed to Checkout</button></a> --}}
-                <a href=""><button class="btn btn-danger">Proceed to Checkout</button></a>
+                <a href="{{ url('checkout') }}"><button class="btn btn-danger">Proceed to Checkout</button></a>
             </div>
         </div>
     </div>

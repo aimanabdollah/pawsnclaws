@@ -53,7 +53,9 @@
                                 <center>{{ $item->name }}</center>
                             </td>
                             <td>
-                                <center>RM {{ $item->selling_price }}</center>
+                                <center>RM
+                                    {{ number_format($item->original_price * (1 - $item->selling_price / 100), 2) }}
+                                </center>
                             </td>
                             <td>
                                 <center>

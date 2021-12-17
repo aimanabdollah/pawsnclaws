@@ -62,15 +62,15 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Original Price</label>
+                        <label for="">Price in RM</label>
                         <input type="number" class="form-control" value="{{ $products->original_price }}"
                             name="original_price" min="0.00" max="10000.00" step="0.01">
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Selling Price</label>
+                        <label for="">Discount in %</label>
                         <input type="number" class="form-control" value="{{ $products->selling_price }}"
-                            name="selling_price" min="0.00" max="10000.00" step="0.01">
+                            name="selling_price" min="0" max="100" step="1">
                     </div>
 
                     {{-- <div class="col-md-6 mb-3">  

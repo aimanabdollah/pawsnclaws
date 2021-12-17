@@ -49,7 +49,7 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="">Discount in %</label>
-                        <input type="number" class="form-control" name="selling_price" min="0" max="100.00" step="1"
+                        <input type="number" class="form-control" name="selling_price" min="0" max="100" step="1"
                             required>
                     </div>
 
