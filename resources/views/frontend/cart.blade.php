@@ -70,54 +70,63 @@
                         </div>
 
                         <div class="col-md-2 my-auto">
-                            <h6>RM {{ $item->products->selling_price }}</h6>
+                            <h6>RM
+                                {{ number_format($price = $item->products->original_price * (1 - $item->products->selling_price / 100), 2) }}
+                            </h6>
                         </div>
 
                         <div class="col-md-2 my-auto">
                             @php
-                                $price = $item->products->selling_price * $item->prod_qty;
+                                $price = $item->products->original_price * (1 - $item->products->selling_price / 100) * $item->prod_qty;
                             @endphp
                             <h6>RM{{ number_format($price, 2) }}</h6>
                         </div>
 
                         <div class="col-md-1 my-auto">
+
                             <input type="hidden" value="{{ $item->prod_id }}" class="prod_id">
-                            <label for="Quantity"></label>
-                            <div class="input-group text-center mb-3" style="width:80px;">
+                            @if ($item->products->qty >= $item->prod_qty)
+                                <label for="Quantity"></label>
+                                <div class="input-group text-center mb-3" style="width:80px;">
 
-                                {{-- <button type="button" class="decrement-btn input-group-text changeQuantity"
-                                    data-type="minus" data-field="">-
-                                </button>
+                                    {{-- <button type="button" class="decrement-btn input-group-text changeQuantity"
+                                        data-type="minus" data-field="">-
+                                    </button>
 
-                                <input type="number" id="quantity" name="quantity"
-                                    class="form-control input-number text-center" value="{{ $item->prod_qty }}" min="1"
-                                    max="10">
+                                    <input type="number" id="quantity" name="quantity"
+                                        class="form-control input-number text-center" value="{{ $item->prod_qty }}" min="1"
+                                        max="10">
 
-                                <button type="button" class="increment-btn input-group-text changeQuantity" data-type="plus"
-                                    data-field="">+
-                                </button> --}}
+                                    <button type="button" class="increment-btn input-group-text changeQuantity" data-type="plus"
+                                        data-field="">+
+                                    </button> --}}
 
+                                    <input type="number" id="qty-input" class="form-control changeQuantity text-center"
+                                        value="{{ $item->prod_qty }}" min="1" max="{{ $item->products->qty }}" step="1"
+                                        name="qty">
 
-                                <input type="number" id="qty-input" class="form-control changeQuantity text-center"
-                                    value="{{ $item->prod_qty }}" min="1" max="10" step="1" name="qty">
+                                    {{-- <button class="input-group-text changeQuantity decrement-btn">-</button>
+                                    <input type="text" name="quantity" class="form-control qty-input text-center"
+                                        value="{{ $item->prod_qty }}">
+                                    <button class="input-group-text changeQuantity increment-btn">+</button> --}}
 
-                                {{-- <button class="input-group-text changeQuantity decrement-btn">-</button>
-                                <input type="text" name="quantity" class="form-control qty-input text-center"
-                                    value="{{ $item->prod_qty }}">
-                                <button class="input-group-text changeQuantity increment-btn">+</button> --}}
+                                </div>
+                                @php
+                                    $total += $price;
+                                @endphp
 
-                            </div>
+                            @else
+                                <span class="badge rounded-pill bg-danger float-start">Out of Stock</span>
+                            @endif
                         </div>
 
                         <div class="col-md-2 my-auto">
                             <button class="btn btn-danger delete-cart-item" style="margin-left: 30px"><i
-                                    class="fa fa-trash"></i> Remove</button>
+                                    class="fa fa-trash"></i>
+                                Remove</button>
                         </div>
-
                     </div>
-                    @php
-                        $total += $item->products->selling_price * $item->prod_qty;
-                    @endphp
+
                 @endforeach
             </div>
             <div class="card-footer">
@@ -126,7 +135,8 @@
 
                     <a href="/"><button class="btn btn-success float-end">Continue Shopping</button></a>
                 </h6>
-                <button class="btn btn-danger">Proceed to Checkout</button>
+                {{-- <a href="{{ url('checkout') }}"><button class="btn btn-danger">Proceed to Checkout</button></a> --}}
+                <a href=""><button class="btn btn-danger">Proceed to Checkout</button></a>
             </div>
         </div>
     </div>

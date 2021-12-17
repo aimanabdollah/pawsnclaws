@@ -42,15 +42,15 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Original Price</label>
+                        <label for="">Price in RM</label>
                         <input type="number" class="form-control" name="original_price" min="0.00" max="10000.00"
                             step="0.01" required>
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Selling Price</label>
-                        <input type="number" class="form-control" name="selling_price" min="0.00" max="10000.00"
-                            step="0.01" required>
+                        <label for="">Discount in %</label>
+                        <input type="number" class="form-control" name="selling_price" min="0" max="100.00" step="1"
+                            required>
                     </div>
 
                     {{-- <div class="col-md-6 mb-3">  

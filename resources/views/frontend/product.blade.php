@@ -23,7 +23,7 @@
 
 
                     <div class="row">
-                        @foreach ($products as $prod)
+                        {{-- @foreach ($products as $prod)
                             <div class="col-md-3 mb-3">
                                 <a href="{{ url('category/' . $prod->category->slug . '/' . $prod->slug) }}">
                                     <div class="card">
@@ -43,7 +43,49 @@
                                 </a>
 
                             </div>
+                        @endforeach --}}
+
+                        @foreach ($products as $prod)
+                            @php
+                                $price_after_discount = 0;
+                                $int = 1;
+                                $int2 = 100;
+                                $price_after_discount = $prod->original_price * ($int - $prod->selling_price / $int2);
+                            @endphp
+                            <div class="col-md-3 mb-3">
+                                <a href="{{ url('category/' . $prod->category->slug . '/' . $prod->slug) }}">
+                                    <div class="card">
+                                        <img src="{{ asset('assets/uploads/products/' . $prod->image) }}"
+                                            alt="Product Image" style="height: 250px">
+                                        <div class="card-body">
+                                            <h5>{{ $prod->name }}</h5>
+
+
+                                            @if ($prod->selling_price > 0)
+                                                <h5>
+                                                    <span style="margin:3px;"
+                                                        class="badge rounded-pill bg-danger float-start"><s>RM{{ $prod->original_price }}</s></span>
+                                                </h5>
+                                                <h5> <span style="margin:3px;"
+                                                        class="badge rounded-pill bg-info text-dark float-start">RM{{ number_format($price_after_discount, 2) }}</span>
+                                                </h5>
+
+                                                <h5> <span style="margin:3px;"
+                                                        class="badge rounded-pill bg-warning text-dark float-end">{{ number_format($prod->selling_price, 0) }}%
+                                                        OFF</span> </h5>
+
+                                            @else
+                                                <h5><span style="margin:3px;"
+                                                        class="badge rounded-pill bg-danger float-start">RM{{ $prod->original_price }}</span>
+                                                </h5>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         @endforeach
+
                     </div>
 
 

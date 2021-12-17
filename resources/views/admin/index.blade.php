@@ -98,7 +98,9 @@
                     ]);
 
                     var options = {
-                        title: 'No. of Product by Category'
+                        title: 'No. of Product by Category',
+                        is3D: true,
+
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('piechart'));

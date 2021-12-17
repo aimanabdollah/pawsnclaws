@@ -32,16 +32,41 @@
                     <div class="col-md-8">
                         <h2 class="mb-0">
                             {{ $products->name }}
-                            @if ($products->popular == '1')
+                            {{-- <span class="badge rounded-pill bg-success float-end">{{ $products->qty }} Left!</span> --}}
+                            {{-- @if ($products->selling_price > 0)
                                 <label style="font-size: 16px;"
-                                    class="float-end badge bg-danger trending_tag">Featured</label>
+                                    class="float-end badge bg-danger trending_tag">{{ number_format($products->selling_price, 0) }}%
+                                    OFF</label>
 
-                            @endif
+                            @endif --}}
+
                         </h2>
 
+
                         <hr>
-                        <label class="me-3"><b>Price: </b><s> RM {{ $products->original_price }}</s></label>
-                        <label class="fw-bold">RM {{ $products->selling_price }}</label>
+                        @if ($products->selling_price > 0)
+                            @php
+                                $price_after_discount = 0;
+                                $int = 1;
+                                $int2 = 100;
+                                $price_after_discount = $products->original_price * ($int - $products->selling_price / $int2);
+                            @endphp
+
+                            <label class="me-3"><b>Price: </b><s> RM
+                                    {{ $products->original_price }}</s></label>
+                            <label class="fw-bold">RM{{ number_format($price_after_discount, 2) }}</label>
+
+                            <button class="btn btn-danger btn-sm">{{ number_format($products->selling_price, 0) }}%
+                                OFF</button>
+
+
+                        @else
+
+                            <label class="me-3"><b>Price: </b> RM {{ $products->original_price }}</label>
+
+                        @endif
+
+
                         <p class="mt-3">
                             <b>Brand: </b>{{ $products->small_description }}
                         </p>
@@ -49,44 +74,59 @@
                             <b>Category: </b>{{ $products->category->name }}
                         </p>
 
-                        <hr>
                         @if ($products->qty > 0)
-                            <label class="badge bg-success">In stock</label>
+                            <p class="mt-3">
+                                <b>Quantity: </b>{{ $products->qty }}
+                            </p>
+                            <hr>
+                            <h5><label class="badge bg-success">In stock</label>
+                            </h5>
                         @else
-                            <label class="badge bg-danger">Out of stock</label>
+                            <p class="mt-3">
+                                <b>Quantity: </b>{{ $products->qty }}
+                            </p>
+                            <hr>
+                            <h5><label class="badge bg-danger">Out of stock</label>
+                            </h5>
                         @endif
 
                         {{-- <input type="hidden" class="productid" value="{{ $products->id }}"> --}}
                         <div class="row mt-2">
-                            <div class="col-md-2">
+                            <div class="col-md-2" style="width:100px;">
                                 <input type="hidden" value="{{ $products->id }}" class="prod_id">
                                 <label for="Quantity">Quantity</label>
-                                <div class="input-group text-center mb-3" style="width:130px;">
+                                <div class="input-group text-center mb-3">
 
                                     {{-- <button class="input-group-text decrement-btn">-</button>
                                     <input type="text" name="quantity" class="form-control qty-input text-center" value="1">
                                     <button class="input-group-text increment-btn">+</button> --}}
 
-                                    <button type="button" class="decrement-btn input-group-text" data-type="minus"
+                                    {{-- <button type="button" class="decrement-btn input-group-text" data-type="minus"
                                         data-field="">-
 
                                     </button>
 
                                     <input type="text" id="quantity" name="quantity"
-                                        class="form-control input-number text-center" value="1" min="1" max="10">
+                                        class="form-control input-number text-center" value="1" min="1"
+                                        max="{{ $products->qty }}">
 
                                     <button type="button" class="increment-btn input-group-text" data-type="plus"
                                         data-field="">+
-                                    </button>
+                                    </button> --}}
+
+                                    <input type="number" id="quantity" class="form-control input-number text-center"
+                                        value="1" min="1" max="{{ $products->qty }}" step="1">
 
                                 </div>
                             </div>
                             <div class="col-md-9">
                                 <br />
-                                <button type="button" class="btn btn-danger me-3 addToCartBtn float-start">Add to Cart
-                                    <i class="fa fa-shopping-cart"></i></button>
-                                <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i
-                                        class="fa fa-heart"></i></button>
+                                @if ($products->qty > 0)
+                                    <button type="button" class="btn btn-danger me-3 addToCartBtn float-start">Add to Cart
+                                        <i class="fa fa-shopping-cart"></i></button>
+                                @endif
+                                {{-- <button type="button" class="btn btn-success me-3 float-start">Add to Wishlist <i
+                                        class="fa fa-heart"></i></button> --}}
                             </div>
                         </div>
 
