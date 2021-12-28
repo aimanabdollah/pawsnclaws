@@ -44,7 +44,7 @@
                                 <i class="material-icons">shopping_cart</i>
                             </div>
                             <p class="card-category">Total Order</p>
-                            <h3 class="card-title">0</h3>
+                            <h3 class="card-title">{{ $order }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -60,7 +60,7 @@
                                 <i class="material-icons">payments</i>
                             </div>
                             <p class="card-category">Total Sales</p>
-                            <h3 class="card-title">RM 0.00</h3>
+                            <h3 class="card-title">RM {{ $amt_sales }}</h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
