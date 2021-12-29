@@ -60,8 +60,18 @@ class FrontendController extends Controller
         }
         $chartProduct = $data4;
 
+        // get top 5 order by state
+        $topState = DB::select(DB::raw('select state as state_name, count(state) as no_order from orders group by state order by count(state) DESC limit 5'));
 
-        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct'));
+        $data5 = "";
+        foreach ($topState as $val) {
+            $data5.="['".$val->state_name."', ".$val->no_order."],";
+        }
+        $chartState = $data5;
+
+
+
+        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct', 'chartState'));
     }
 
   

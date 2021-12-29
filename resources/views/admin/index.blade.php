@@ -80,12 +80,12 @@
                 </div>
 
                 <div class="col-lg-6">
-
                     <div class="card card-stats" id="barchart" style="height: 300px"></div>
                 </div>
 
-
-
+                <div class="col-lg-6">
+                    <div class="card card-stats" id="columnchart_values" style="height: 300px"></div>
+                </div>
 
 
 
@@ -183,6 +183,41 @@
 
                     var chart = new google.visualization.BarChart(document.getElementById('barchart'));
 
+                    chart.draw(data, options);
+                }
+
+
+                // BAR CHART FOR TOP 5 MOST ORDER BY STATE
+
+
+                google.charts.load("current", {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(orderstate);
+
+                function orderstate() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['State', 'No. of Order'],
+                        <?php echo $chartState; ?>
+                    ]);
+
+                    var options = {
+                        title: "Top 5 Most Order by State",
+                        bar: {
+                            groupWidth: "95%"
+                        },
+                        legend: {
+                            position: "none"
+                        },
+                        hAxis: {
+                            title: 'State',
+
+                        },
+                        vAxis: {
+                            title: 'No. of Order'
+                        }
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
                     chart.draw(data, options);
                 }
             </script>

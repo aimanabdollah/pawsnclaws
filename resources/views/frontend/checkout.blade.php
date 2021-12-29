@@ -54,8 +54,28 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">State</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->state }}"
-                                        name="state" placeholder="Enter State">
+                                    {{-- <input type="text" class="form-control" value="{{ Auth::user()->state }}"
+                                        name="state" placeholder="Enter State"> --}}
+
+                                    <select class="form-select" name=state aria-label="Default select example">
+                                        <option selected>Please select a state</option>
+                                        <option value="W.P Kuala Lumpur">W.P Kuala Lumpur</option>
+                                        <option value="W.P Labuan">W.P Labuan</option>
+                                        <option value="W.P Putrajaya">W.P Putrajaya</option>
+                                        <option value="Johor">Johor</option>
+                                        <option value="Kedah">Kedah</option>
+                                        <option value="Kelantan">Kelantan</option>
+                                        <option value="Melaka">Melaka</option>
+                                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                        <option value="Pahang">Pahang</option>
+                                        <option value="Perak">Perak</option>
+                                        <option value="Perlis">Perlis</option>
+                                        <option value="Pulau Pinang">Pulau Pinang</option>
+                                        <option value="Sabah">Sabah</option>
+                                        <option value="Sarawak">Sarawak</option>
+                                        <option value="Selangor">Selangor</option>
+                                        <option value="Terengganu">Terengganu</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">Country</label>
