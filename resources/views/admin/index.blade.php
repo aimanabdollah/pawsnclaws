@@ -70,11 +70,16 @@
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div>
-                        <div class="card card-stats" id="piechart" style="width: 600px; height: 300px;"></div>
-                    </div>
+                <div class="col-lg-6">
+                    <div class="card card-stats" id="piechart" style="height: 300px"></div>
+
                 </div>
+                <div class="col-lg-6">
+
+                    <div class="card card-stats" id="chart_div" style="height: 300px"></div>
+                </div>
+
+
 
 
 
@@ -87,9 +92,9 @@
                 google.charts.load('current', {
                     'packages': ['corechart']
                 });
-                google.charts.setOnLoadCallback(drawChart);
+                google.charts.setOnLoadCallback(drawpieChart);
 
-                function drawChart() {
+                function drawpieChart() {
 
                     var data = google.visualization.arrayToDataTable([
                         ['Category', 'No.of Product'],
@@ -104,6 +109,36 @@
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                }
+
+                // google.charts.load('current', {
+                //     'packages': ['corechart']
+                // });
+                google.charts.load('current', {
+                    packages: ['corechart', 'line']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Month', 'Sales'],
+                        <?php echo $chartSales; ?>
+                    ]);
+
+                    var options = {
+                        title: 'No. of Sales by Month',
+                        hAxis: {
+                            title: 'Month'
+                        },
+                        vAxis: {
+                            title: 'Sales in RM'
+                        }
+
+                    };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
 
                     chart.draw(data, options);
                 }
