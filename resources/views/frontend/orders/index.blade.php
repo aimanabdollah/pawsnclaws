@@ -7,7 +7,21 @@
 
 
 @section('content')
-    <div class="container py-5">
+    <div class="py-3 mb-4 shadow-sm bg-warning border-top">
+        <div class="container">
+            <h6 class="mb-0">
+                <a href="{{ url('/') }}">
+                    Home
+                </a> /
+                <a href="{{ url('my-orders') }}">
+                    Orders
+                </a>
+
+            </h6>
+        </div>
+    </div>
+
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -19,15 +33,23 @@
                         @endphp
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Order Date/Time</th>
-                                    <th>Tracking Number</th>
-                                    <th>Total Price</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th>
+                                        <center>Order Date
+                                    </th>
+                                    {{-- <th>Tracking Number</th> --}}
+                                    <th>
+                                        <center>Total Price</center>
+                                    </th>
+                                    <th>
+                                        <center>Status</center>
+                                    </th>
+                                    <th>
+                                        <center>Action</center>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,18 +64,35 @@
                                         
                                     @endphp
                                     <tr>
-                                        <td>{{ $count = $count + 1 }}.
-                                        <td>{{ $date }} {{ $time }}</td>
-                                        <td>{{ $item->tracking_no }}</td>
-                                        <td>RM {{ $item->total_price }}</td>
-                                        <td>{{ $item->status == '0' ? 'Pending' : 'Completed' }}</td>
+                                        {{-- <td>{{ $count = $count + 1 }}.</td> --}}
+                                        <td>{{ ($orders->currentPage() - 1) * $orders->perPage() + $loop->iteration }}.
+                                        </td>
                                         <td>
-                                            <a href="{{ url('view-order/' . $item->id) }}" class="btn btn-primary">View</a>
+                                            <center>{{ $date }}</center>
+                                        </td>
+                                        {{-- <td>{{ $item->tracking_no }}</td> --}}
+                                        <td>
+                                            <center>RM {{ $item->total_price }}</center>
+                                        </td>
+                                        <td>
+                                            <center>{{ $item->status == '0' ? 'Pending' : 'Completed' }}</center>
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <a href="{{ url('view-order/' . $item->id) }}"
+                                                    class="btn btn-primary">View</a>
+                                            </center>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+
+                        <div class="row float-end">
+                            <div class="mx-auto mt-3">
+                                {!! $orders->links() !!}
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -62,5 +101,7 @@
             </div>
         </div>
     </div>
+
+
 
 @endsection

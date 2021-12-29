@@ -4,19 +4,19 @@
     <div class="card">
 
         <div class="col-12">
-            <h3>Category List</h3>
-            <a href="{{ url('add-category') }}" class="btn btn-primary float-right" style="margin-right: 4%">Add New
-                Category</a>
-
-            <div class="row g-3 align-items-center mt-2">
-                <div class="col-auto">
-                    <form action="/categories" method="GET">
-                        <input type="search" id="inputPassword6" name="search" class="form-control"
-                            aria-describedby="passwordHelpInline" placeholder="Search Category Name Here"
-                            style="width:250px;">
-                    </form>
+            <h3><b>Category List</b>
+                <a href="{{ 'add-category' }}" class="btn btn-primary float-right">Add New
+                    Category</a>
+                <div class="row g-3 align-items-center mt-2 float-right" style="margin-right: 1%">
+                    <div class="col-auto">
+                        <form action="/categories" method="GET">
+                            <input type="search" id="inputPassword6" name="search" class="form-control"
+                                aria-describedby="passwordHelpInline" placeholder="Search Category Name Here"
+                                style="width:250px;">
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </h3>
 
         </div>
 
@@ -28,18 +28,26 @@
 
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th> <b>No. </b></th>
                         <th>
-                            <center>Category Name</center>
+                            <b>
+                                <center>Category Name</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Description</center>
+                            <b>
+                                <center>Description</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Image</center>
+                            <b>
+                                <center>Image</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Action</center>
+                            <b>
+                                <center>Action</center>
+                            </b>
                         </th>
                     </tr>
                 </thead>
@@ -48,7 +56,7 @@
 
                     @foreach ($category as $item)
                         <tr>
-                            <td>{{ ($category->currentPage() - 1) * $category->perPage() + $loop->iteration }}</td>
+                            <td>{{ ($category->currentPage() - 1) * $category->perPage() + $loop->iteration }}.</td>
                             <td>
                                 <center>{{ $item->name }}</center>
                             </td>

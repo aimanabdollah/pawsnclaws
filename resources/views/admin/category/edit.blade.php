@@ -3,7 +3,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h4>Edit Category</h4>
+            <h4><b>Edit Category</b></h4>
         </div>
         <div class="card-body">
             <form action="{{ url('update-category/' . $category->id) }}" method="POST" enctype="multipart/form-data">

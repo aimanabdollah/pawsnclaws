@@ -2,50 +2,62 @@
 
 @section('content')
     <div class="card">
-        <div class="col-12">
-            <h3>Product List </h3>
-            <a href="{{ url('add-products') }}" class="btn btn-primary float-right" style="margin-right: 7.5%">Add New
-                Product</a>
 
-            <div class="row g-3 align-items-center mt-2">
-                <div class="col-auto">
-                    <form action="/products" method="GET">
-                        <input type="search" id="inputPassword6" name="search" class="form-control"
-                            aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
-                            style="width:250px;">
-                    </form>
+        <div class="col-12">
+            <h3><b>Product List</b>
+                <a href="{{ 'add-products' }}" class="btn btn-primary float-right">Add New
+                    Product</a>
+                <div class="row g-3 align-items-center mt-2 float-right" style="margin-right: 1%">
+                    <div class="col-auto">
+                        <form action="/products" method="GET">
+                            <input type="search" id="inputPassword6" name="search" class="form-control"
+                                aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
+                                style="width:250px;">
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </h3>
+
         </div>
+
         <hr>
         <div class="card-body">
             <table class="table table-boradered table-striped">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th> <b>No. </b></th>
                         <th>
-                            <center>Category</center>
+                            <b>
+                                <center>Category</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Product Name</center>
+                            <b>
+                                <center>Product Name</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Selling Price</center>
+                            <b>
+                                <center>Price</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Image</center>
+                            <b>
+                                <center>Image</center>
+                            </b>
                         </th>
                         <th>
-                            <center>Action</center>
+                            <b>
+                                <center>Action</center>
+                            </b>
                         </th>
-
                     </tr>
                 </thead>
                 <tbody>
                     <?php $counter = 0; ?>
                     @foreach ($products as $item)
                         <tr>
-                            <td>{{ ($products->currentPage() - 1) * $products->perPage() + $loop->iteration }}</td>
+                            <td>{{ ($products->currentPage() - 1) * $products->perPage() + $loop->iteration }}.</td>
                             <td>
                                 <center>{{ $item->category->name }}</center>
                             </td>

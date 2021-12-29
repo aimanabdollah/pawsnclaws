@@ -7,6 +7,22 @@
 
 
 @section('content')
+    <div class="py-3 mb-4 shadow-sm bg-warning border-top">
+        <div class="container">
+            <h6 class="mb-0">
+                <a href="{{ url('/') }}">
+                    Home
+                </a> /
+                <a href="{{ url('my-orders') }}">
+                    Orders
+                </a>
+                / Details
+
+                </a>
+
+            </h6>
+        </div>
+    </div>
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
@@ -29,12 +45,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label class="form" for="">First Name</label>
-                                        <div class="border">{{ $orders->fname }}</div>
+                                        <div class="form-control">{{ $orders->fname }}</div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="form" for="">Last Name</label>
-                                        <div class="border">{{ $orders->lname }}</div>
+                                        <div class="form-control">{{ $orders->lname }}</div>
                                     </div>
 
                                 </div>
@@ -42,12 +58,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label class="form" for="">Email</label>
-                                        <div class="border">{{ $orders->email }}</div>
+                                        <div class="form-control">{{ $orders->email }}</div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="form" for="">Contact No.</label>
-                                        <div class="border">{{ $orders->phone }}</div>
+                                        <div class="form-control">{{ $orders->phone }}</div>
                                     </div>
 
                                 </div>
@@ -55,7 +71,7 @@
                                 <label class="form mt-2" for="">Address</label>
 
 
-                                <div class="border">
+                                <div class="form-control">
                                     {{ $orders->address1 }},
                                     {{ $orders->address2 }}
                                     {{-- {{ $orders->city }}, <br>
@@ -65,19 +81,19 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="border">{{ $orders->pincode }}</div>
+                                        <div class="form-control">{{ $orders->pincode }}</div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="border">{{ $orders->city }}</div>
+                                        <div class="form-control">{{ $orders->city }}</div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="border">{{ $orders->state }}</div>
+                                        <div class="form-control">{{ $orders->state }}</div>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="border">{{ $orders->country }}</div>
+                                        <div class="form-control">{{ $orders->country }}</div>
                                     </div>
 
                                 </div>
@@ -86,7 +102,7 @@
                             <div class="col-md-6">
                                 <h4>Order Details</h4>
                                 <hr>
-                                <table class="table table-bordered">
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
