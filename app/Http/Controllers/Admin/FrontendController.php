@@ -50,8 +50,18 @@ class FrontendController extends Controller
         }
         $chartSales = $data3;
 
+        // get top 3 best selling product
+        $topProduct = DB::select(DB::raw('select sum(o.qty) as total_sell, p.name as 
+        product_name from order_items as o, products as p where o.prod_id=p.id group by p.name order by sum(o.qty) DESC limit 3'));
 
-        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales'));
+        $data4 = "";
+        foreach ($topProduct as $val) {
+            $data4.="['".$val->product_name."', ".$val->total_sell."],";
+        }
+        $chartProduct = $data4;
+
+
+        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct'));
     }
 
   

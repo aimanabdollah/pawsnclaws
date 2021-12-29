@@ -79,6 +79,12 @@
                     <div class="card card-stats" id="chart_div" style="height: 300px"></div>
                 </div>
 
+                <div class="col-lg-6">
+
+                    <div class="card card-stats" id="barchart" style="height: 300px"></div>
+                </div>
+
+
 
 
 
@@ -89,6 +95,8 @@
 
         @section('scripts')
             <script>
+                // PIE CHART FOR PRODUCT BY CATEGORY
+
                 google.charts.load('current', {
                     'packages': ['corechart']
                 });
@@ -113,9 +121,10 @@
                     chart.draw(data, options);
                 }
 
-                // google.charts.load('current', {
-                //     'packages': ['corechart']
-                // });
+
+
+                // LINE CHART FOR TOTAL SALES BY MONTH
+
                 google.charts.load('current', {
                     packages: ['corechart', 'line']
                 });
@@ -139,6 +148,40 @@
                     };
 
                     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+                    chart.draw(data, options);
+                }
+
+
+                // BAR CHART FOR TOP 3 MOST SELLING PRODUCT
+
+                google.charts.load('current', {
+                    packages: ['corechart', 'bar']
+                });
+                google.charts.setOnLoadCallback(topProduct);
+
+                function topProduct() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Product Name', 'No. of Sold'],
+                        <?php echo $chartProduct; ?>
+                    ]);
+
+                    var options = {
+                        title: 'Top 3 Most Selling Product',
+                        chartArea: {
+                            width: '50%'
+                        },
+                        hAxis: {
+                            title: 'Total Sell',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'Product Name'
+                        }
+                    };
+
+                    var chart = new google.visualization.BarChart(document.getElementById('barchart'));
 
                     chart.draw(data, options);
                 }
