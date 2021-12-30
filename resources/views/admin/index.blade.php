@@ -95,13 +95,13 @@
 
                 <div class="col-lg-6">
                     <div class="card card-stats">
-                        <div class="ml-4" id="barchart2" style="height: 300px"></div>
+                        <div class="ml-4" id="barchart3" style="height: 300px"></div>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="card card-stats">
-                        <div class="ml-4" id="barchart3" style="height: 300px"></div>
+                        <div class="ml-4" id="barchart2" style="height: 300px"></div>
                     </div>
                 </div>
 
@@ -163,13 +163,17 @@
 
                     var options = {
                         title: 'No. of Sales by Month',
+                        colors: ['purple'],
+                        // colors: '#d799ae',
+                        //     // chartArea: {
+                        //          backgroundColor: '#C7CEEA'
+                        // },
                         hAxis: {
                             title: 'Month'
                         },
                         vAxis: {
                             title: 'Sales in RM'
                         }
-
                     };
 
                     var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
@@ -194,6 +198,7 @@
 
                     var options = {
                         title: 'Top 3 Most Selling Product',
+                        colors: ['green'],
                         chartArea: {
                             width: '50%'
                         },
@@ -228,6 +233,7 @@
 
                     var options = {
                         title: "Top 5 Most Order by State",
+                        colors: ['orange'],
                         bar: {
                             groupWidth: "95%"
                         },
@@ -265,6 +271,7 @@
 
                     var options = {
                         title: 'Top 3 Most No. of Order by Customer ',
+                        colors: ['#FF0000'],
                         chartArea: {
                             width: '50%'
                         },
@@ -372,7 +379,7 @@
                                 targetAxisIndex: 1
                             }
                         },
-                        title: 'Total Spend and Order by All Customer',
+                        title: 'Total Spend and Order by Customer',
                         vAxes: {
                             // Adds titles to each axis.
                             0: {
