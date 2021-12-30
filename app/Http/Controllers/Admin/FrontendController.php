@@ -70,8 +70,36 @@ class FrontendController extends Controller
         $chartState = $data5;
 
 
+        // get top 3 most bought order by customer
+         $topOrderCust = DB::select(DB::raw('select CONCAT(fname ," " , lname) as name, count(user_id) as no_order from orders group by user_id order by count(user_id) DESC limit 3'));
+      
+        $data6 = "";
+        foreach ($topOrderCust as $val) {
+            $data6.="['".$val->name."', ".$val->no_order."],";
+        }
+        $chartOrderCust = $data6;
 
-        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct', 'chartState'));
+        
+        // get top 3 most order spend by customer
+        $topSpendCust = DB::select(DB::raw('select CONCAT(fname, " ", lname) as name, sum(total_price) as total_spend from orders group by user_id order by sum(total_price) DESC limit 3'));
+
+        $data7 = "";
+        foreach ($topSpendCust as $val) {
+            $data7.="['".$val->name."', ".$val->total_spend."],";
+        }
+        $chartSpendCust = $data7;
+
+        // get total order and total spend by customer
+        $orderSpend = DB::select(DB::raw('select CONCAT(fname ," " , lname) as name, count(user_id) as no_order, sum(total_price) as total_spend from orders group by user_id '));
+
+        $data8 = "";
+        foreach ($orderSpend as $val) {
+            $data8.="['".$val->name."', ".$val->total_spend.", ".$val->no_order."],";
+        }
+        $chartOS = $data8;
+
+    
+        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct', 'chartState', 'chartOrderCust', 'chartSpendCust', 'chartOS'));
     }
 
   

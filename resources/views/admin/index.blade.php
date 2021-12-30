@@ -70,24 +70,49 @@
                     </div>
                 </div>
 
+
                 <div class="col-lg-6">
                     <div class="card card-stats" id="piechart" style="height: 300px"></div>
-
                 </div>
-                <div class="col-lg-6">
 
+
+
+                <div class="col-lg-6">
                     <div class="card card-stats" id="chart_div" style="height: 300px"></div>
                 </div>
 
+
                 <div class="col-lg-6">
-                    <div class="card card-stats" id="barchart" style="height: 300px"></div>
+                    <div class="card card-stats">
+                        <div class="ml-4" id="barchart" style="height: 300px"></div>
+                    </div>
                 </div>
+
 
                 <div class="col-lg-6">
                     <div class="card card-stats" id="columnchart_values" style="height: 300px"></div>
                 </div>
 
+                <div class="col-lg-6">
+                    <div class="card card-stats">
+                        <div class="ml-4" id="barchart2" style="height: 300px"></div>
+                    </div>
+                </div>
 
+                <div class="col-lg-6">
+                    <div class="card card-stats">
+                        <div class="ml-4" id="barchart3" style="height: 300px"></div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12">
+                    <div class="card card-stats">
+                        <center>
+                            <div id="chart_div2" style="height: 300px;"></div>
+                        </center>
+                    </div>
+                </div>
 
             </div>
 
@@ -220,6 +245,161 @@
                     var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
                     chart.draw(data, options);
                 }
+
+
+
+
+                // BAR CHART FOR TOP 3 MOST ORDER BY CUSTOMER
+
+                google.charts.load('current', {
+                    packages: ['corechart', 'bar']
+                });
+                google.charts.setOnLoadCallback(orderCust);
+
+                function orderCust() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Customer Name', 'No. of Order'],
+                        <?php echo $chartOrderCust; ?>
+                    ]);
+
+                    var options = {
+                        title: 'Top 3 Most No. of Order by Customer ',
+                        chartArea: {
+                            width: '50%'
+                        },
+                        hAxis: {
+                            title: 'Total Order',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'Customer Name'
+                        }
+                    };
+
+                    var chart = new google.visualization.BarChart(document.getElementById('barchart2'));
+
+                    chart.draw(data, options);
+                }
+
+
+                // BAR CHART FOR TOP 3 MOST SPEND BY CUSTOMER
+
+                google.charts.load('current', {
+                    packages: ['corechart', 'bar']
+                });
+                google.charts.setOnLoadCallback(spendCust);
+
+                function spendCust() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Customer Name', 'Total Spend'],
+                        <?php echo $chartSpendCust; ?>
+                    ]);
+
+                    var options = {
+                        title: 'Top 3 Most Total Spend by Customer ',
+                        chartArea: {
+                            width: '50%'
+                        },
+                        hAxis: {
+                            title: 'Total Spend',
+                            minValue: 0
+                        },
+                        vAxis: {
+                            title: 'Customer Name'
+                        }
+                    };
+
+                    var chart = new google.visualization.BarChart(document.getElementById('barchart3'));
+
+                    chart.draw(data, options);
+                }
+
+
+
+                // BAR CHART FOR TOTAL SPEND AND ORDER BY CUSTOMER
+
+                google.charts.load('current', {
+                    'packages': ['corechart', 'bar']
+                });
+                google.charts.setOnLoadCallback(drawStuff);
+
+                function drawStuff() {
+
+                    var button = document.getElementById('change-chart');
+                    var chartDiv = document.getElementById('chart_div2');
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Customer Name', 'Total Spend', 'Total Order'],
+                        <?php echo $chartOS; ?>
+                    ]);
+
+                    var materialOptions = {
+                        width: 900,
+                        chart: {
+                            title: 'Total Spend and Order',
+                            subtitle: 'by Customer'
+                        },
+                        series: {
+                            0: {
+                                axis: 'distance'
+                            }, // Bind series 0 to an axis named 'distance'.
+                            1: {
+                                axis: 'brightness'
+                            } // Bind series 1 to an axis named 'brightness'.
+                        },
+                        axes: {
+                            y: {
+                                distance: {
+                                    label: 'Amount of Total Spend'
+                                }, // Left y-axis.
+                                brightness: {
+                                    side: 'right',
+                                    label: 'Number of Order'
+                                } // Right y-axis.
+                            }
+                        }
+                    };
+
+                    var classicOptions = {
+                        width: 900,
+                        series: {
+                            0: {
+                                targetAxisIndex: 0
+                            },
+                            1: {
+                                targetAxisIndex: 1
+                            }
+                        },
+                        title: 'Total Spend and Order by All Customer',
+                        vAxes: {
+                            // Adds titles to each axis.
+                            0: {
+                                title: 'Amount of Total Spend'
+                            },
+                            1: {
+                                title: 'Number of Order'
+                            }
+                        }
+                    };
+
+                    function drawMaterialChart() {
+                        var materialChart = new google.charts.Bar(chartDiv);
+                        materialChart.draw(data, google.charts.Bar.convertOptions(materialOptions));
+                        button.innerText = 'Change to Classic';
+                        button.onclick = drawClassicChart;
+                    }
+
+                    function drawClassicChart() {
+                        var classicChart = new google.visualization.ColumnChart(chartDiv);
+                        classicChart.draw(data, classicOptions);
+                        button.innerText = 'Change to Material';
+                        button.onclick = drawMaterialChart;
+                    }
+
+                    drawClassicChart();
+                };
             </script>
 
 
