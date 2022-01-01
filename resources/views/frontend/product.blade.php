@@ -10,16 +10,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>All Products</h2>
-                    <div class="row g-3 align-items-center mt-2 mb-2">
-                        <div class="col-auto">
-                            <form action="/product" method="GET">
-                                <input type="search" id="inputPassword6" name="search" class="form-control"
-                                    aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
-                                    style="width:308px;">
-                            </form>
+                    <h2>All Products
+
+                        <div class="row g-3  align-items-center mt-2 mb-2">
+                            <div class="col-lg-12">
+                                <form action="/product" method="GET">
+                                    <span class="input-group-text border-1 float-start" id="search-addon">
+                                        <input type="search" id="inputPassword6" name="search" class="form-control"
+                                            aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
+                                            style="width:308px"> <i class="fa fa-search" style="margin-left: 13px"></i>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    </h2>
 
 
                     <div class="row">

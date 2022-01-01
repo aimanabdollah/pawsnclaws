@@ -52,6 +52,7 @@
                 </div>
                 <hr>
 
+
                 @foreach ($cartitems as $item)
                     <div class="row product_data mt-2">
 
@@ -92,11 +93,9 @@
                                     {{-- <button type="button" class="decrement-btn input-group-text changeQuantity"
                                         data-type="minus" data-field="">-
                                     </button>
-
                                     <input type="number" id="quantity" name="quantity"
                                         class="form-control input-number text-center" value="{{ $item->prod_qty }}" min="1"
                                         max="10">
-
                                     <button type="button" class="increment-btn input-group-text changeQuantity" data-type="plus"
                                         data-field="">+
                                     </button> --}}
@@ -135,7 +134,9 @@
 
                     <a href="/"><button class="btn btn-success float-end">Continue Shopping</button></a>
                 </h6>
-                <a href="{{ url('checkout') }}"><button class="btn btn-danger">Proceed to Checkout</button></a>
+                @if ($count > 0)
+                    <a href="{{ url('checkout') }}"><button class="btn btn-danger">Proceed to Checkout</button></a>
+                @endif
             </div>
         </div>
     </div>

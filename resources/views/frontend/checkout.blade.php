@@ -5,8 +5,23 @@
 @endsection
 
 
-
 @section('content')
+    <div class="py-3 mb-4 shadow-sm bg-warning border-top">
+        <div class="container">
+            <h6 class="mb-0">
+                <a href="{{ url('/') }}">
+                    Home
+                </a> /
+                <a href="{{ url('cart') }}">
+                    Cart
+                </a> /
+                <a href="{{ url('checkout') }}">
+                    Checkout
+                </a>
+
+            </h6>
+        </div>
+    </div>
     <div class="container mt-5">
         <form action="{{ url('place-order') }}" method="POST">
             {{ csrf_field() }}
@@ -14,13 +29,13 @@
                 <div class="col-md-7">
                     <div class="card">
                         <div class="card-body">
-                            <h6>Basic Details</h6>
+                            <h6>Customer Details</h6>
                             <hr>
                             <div class="row checkout-form">
                                 <div class="col-md-6">
                                     <label for="">First Name</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->name }}" name="fname"
-                                        placeholder="Enter First Name">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->name }}"
+                                        name="fname" placeholder="Enter First Name">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Last Name</label>
@@ -49,8 +64,8 @@
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">City</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->city }}" name="city"
-                                        placeholder="Enter City">
+                                    <input type="text" class="form-control" value="{{ Auth::user()->city }}"
+                                        name="city" placeholder="Enter City">
                                 </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="">State</label>
@@ -95,7 +110,7 @@
                 <div class="col-md-5">
                     <div class="card">
                         <div class="card-body">
-                            <h6>Order Detials</h6>
+                            <h6>Order Details</h6>
                             <hr>
                             <table class="table table-striped table-boardered">
 
