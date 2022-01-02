@@ -33,7 +33,8 @@ class FrontendController extends Controller
      public function product(Request $request)
     {
         if($request->has('search')){
-               $products = \App\Models\Product::where('name', 'LIKE', '%' .$request->search.'%')->get();
+            
+             $products = \App\Models\Product::where('name', 'LIKE', '%' .$request->search.'%')->get();
             
         }else {
              $products = Product::where('status', '1')->get();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -38,6 +39,14 @@ class LoginController extends Controller
         {
             return redirect('home')->with('status','Logged in successfully');
         }
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'email' => ['required', 'string', 'email', 'min:4', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'max:10', 'confirmed'],
+        ]);
     }
 
     /**
