@@ -5,7 +5,7 @@
 
         <div class="col-12">
             <h3><b>Product List</b>
-                <a href="{{ 'add-products' }}" class="btn btn-primary float-right">Add New
+                <a href="{{ 'products/add-products' }}" class="btn btn-success float-right">Add New
                     Product</a>
                 <div class="row g-3 align-items-center mt-2 float-right" style="margin-right: 1%">
                     <div class="col-auto">
@@ -13,6 +13,7 @@
                             <input type="search" id="inputPassword6" name="search" class="form-control"
                                 aria-describedby="passwordHelpInline" placeholder="Search Product Name Here"
                                 style="width:250px;">
+
                         </form>
                     </div>
                 </div>
@@ -77,9 +78,15 @@
                             </center>
                             <td>
                                 <center>
-                                    <a href="{{ url('edit-product/' . $item->id) }}" class="btn btn-info">Edit</a>
-                                    <a href="{{ url('delete-product/' . $item->id) }}" class="btn btn-danger"
-                                        onclick="return confirm('Are you sure to delete this product?')">Delete</a>
+                                    <a href="{{ url('products/edit-product/' . $item->id) }}" class="btn btn-warning"><span
+                                            class="material-icons">
+                                            edit
+                                        </span>Edit</a></a>
+                                    <a href="{{ url('products/delete-product/' . $item->id) }}" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this product?')"><span
+                                            class="material-icons">
+                                            delete
+                                        </span>Delete</a></a>
                                 </center>
 
 

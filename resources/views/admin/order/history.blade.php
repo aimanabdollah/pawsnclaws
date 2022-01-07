@@ -8,8 +8,8 @@
 
     <div class="card">
         <div class="col-12">
-            <h3><b>Order History List</b>
-                <a href="{{ 'orders' }}" class="btn btn-primary float-right">View New Order</a>
+            <h3><b>List of Order History</b>
+                <a href="{{ '/orders' }}" class="btn btn-success float-right">View New Order</a>
             </h3>
             @php
                 $total = 0;
@@ -76,7 +76,8 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="{{ url('admin/view-order/' . $item->id) }}" class="btn btn-primary">View</a>
+                                    <a href="{{ url('orders/view-orderhistory/' . $item->id) }}"
+                                        class="btn btn-primary">View</a>
                                 </center>
                             </td>
                         </tr>

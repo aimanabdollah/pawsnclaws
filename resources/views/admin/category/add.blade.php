@@ -8,7 +8,7 @@
         <div class="card-body">
             <form action="{{ url('insert-category') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="row">
+                <div class="row products">
 
                     <div class="col-md-6 mb-3">
                         <label for="">Name</label>
@@ -43,12 +43,12 @@
                     {{-- <div class="col-md-12 mb-3">
                     <label for="">Meta Keywords</label>
                     <textarea name="meta_keywords" rows="3" class="form-control"></textarea> 
-                </div>
+                    </div>
 
-                <div class="col-md-12 mb-3">
-                    <label for="">Meta Description</label>
-                    <textarea name="meta_description" rows="3" class="form-control"></textarea> 
-                </div> --}}
+                    <div class="col-md-12 mb-3">
+                        <label for="">Meta Description</label>
+                        <textarea name="meta_description" rows="3" class="form-control"></textarea> 
+                    </div> --}}
 
                     <div class="col-md-12">
                         <label for="">Image</label>

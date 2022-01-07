@@ -5,7 +5,7 @@
 
         <div class="col-12">
             <h3><b>Category List</b>
-                <a href="{{ 'add-category' }}" class="btn btn-primary float-right">Add New
+                <a href="{{ 'categories/add-category' }}" class="btn btn-success float-right">Add New
                     Category</a>
                 <div class="row g-3 align-items-center mt-2 float-right" style="margin-right: 1%">
                     <div class="col-auto">
@@ -70,9 +70,15 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="{{ url('edit-category/' . $item->id) }}" class="btn btn-info ">Edit</a>
-                                    <a href="{{ url('delete-category/' . $item->id) }}" class="btn btn-danger"
-                                        onclick="return confirm('Are you sure to delete this category?')">Delete</a>
+                                    <a href="{{ url('categories/edit-category/' . $item->id) }}"
+                                        class="btn btn-warning "><span class="material-icons">
+                                            edit
+                                        </span>Edit</a>
+                                    <a href="{{ url('categories/delete-category/' . $item->id) }}" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this category?')"><span
+                                            class="material-icons">
+                                            delete
+                                        </span>Delete</a>
                                 </center>
                             </td>
                         </tr>

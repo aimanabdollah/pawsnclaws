@@ -100,6 +100,7 @@
                                         data-field="">+
                                     </button> --}}
 
+
                                     <input type="number" id="qty-input" class="form-control changeQuantity text-center"
                                         value="{{ $item->prod_qty }}" min="1" max="{{ $item->products->qty }}" step="1"
                                         name="qty">

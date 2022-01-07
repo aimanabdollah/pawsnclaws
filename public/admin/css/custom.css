@@ -25,6 +25,13 @@
 .order-details label {
     font-size: 14px;
     font-weight: 400;
+    color: #212529;
+}
+
+.products label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #212529;
 }
 
 .order-details div {

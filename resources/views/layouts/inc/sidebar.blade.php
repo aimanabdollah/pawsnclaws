@@ -1,4 +1,4 @@
-  <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <div class="sidebar" data-color="azure" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -17,9 +17,9 @@
                       <p>Dashboard</p>
                   </a>
               </li>
-              <li class="nav-item {{ Request::is('categories') ? 'active' : '' }}">
+              <li class="nav-item {{ Request::is('categories*') ? 'active' : '' }}">
                   <a class="nav-link" href="{{ url('categories') }}">
-                      <i class="material-icons">view_list</i>
+                      <i class="material-icons">category</i>
                       <p>Categories</p>
                   </a>
               </li>
@@ -31,19 +31,44 @@
             </a>
           </li> --}}
 
-              <li class="nav-item {{ Request::is('products') ? 'active' : '' }}">
+              <li class="nav-item {{ Request::is('products*') ? 'active' : '' }}">
                   <a class="nav-link" href="{{ url('products') }}">
-                      <i class="material-icons">view_list</i>
+                      <i class="material-icons">shopping_bag</i>
                       <p>Products</p>
                   </a>
               </li>
 
-              <li class="nav-item {{ Request::is('orders') ? 'active' : '' }}">
+              <li class="nav-item {{ Request::is('orders*') ? 'active' : '' }}">
                   <a class="nav-link" href="{{ url('orders') }}">
-                      <i class="material-icons">view_list</i>
+                      <i class="material-icons">shopping_cart</i>
                       <p>Orders</p>
                   </a>
               </li>
+
+
+
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();    document.getElementById('logout-form').submit();">
+                      <i class="material-icons">logout</i>
+                      <p>Logout</p>
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+
+              </li>
+
+
+
+
+
+
+
+
+
+
+
 
 
               {{-- <li class="nav-item {{ Request::is('orders') ? 'active' : '' }}">

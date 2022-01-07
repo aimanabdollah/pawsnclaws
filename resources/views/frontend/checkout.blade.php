@@ -62,6 +62,13 @@
                                     <input type="text" class="form-control" value="{{ Auth::user()->address2 }}"
                                         name="address2" placeholder="Enter Address 2">
                                 </div>
+
+                                <div class="col-md-6 mt-3">
+                                    <label for="">PostCode</label>
+                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}"
+                                        name="pincode" placeholder="Enter Pin Code">
+                                </div>
+
                                 <div class="col-md-6 mt-3">
                                     <label for="">City</label>
                                     <input type="text" class="form-control" value="{{ Auth::user()->city }}"
@@ -96,11 +103,6 @@
                                     <label for="">Country</label>
                                     <input type="text" class="form-control" value="{{ Auth::user()->country }}"
                                         name="country" placeholder="Enter Country">
-                                </div>
-                                <div class="col-md-6 mt-3">
-                                    <label for="">Pin Code</label>
-                                    <input type="text" class="form-control" value="{{ Auth::user()->pincode }}"
-                                        name="pincode" placeholder="Enter Pin Code">
                                 </div>
 
                             </div>

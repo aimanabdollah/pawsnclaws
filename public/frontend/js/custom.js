@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    // loadcart();
+
+    // function loadcart() {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: "/load-cart-data",
+    //         success: function (response) {
+    //             $(".cart-count").html("");
+    //             $(".cart-count").html(response.count);
+
+    //             //console.log(response.count);
+    //         },
+    //     });
+    // }
+
     $(".addToCartBtn").click(function (e) {
         e.preventDefault();
 

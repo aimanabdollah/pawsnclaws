@@ -41,6 +41,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('cart') }}">Cart</a>
+
                 </li>
 
                 <ul class="navbar-nav ml-auto">

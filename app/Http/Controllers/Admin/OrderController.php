@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function index() 
     {
-        $orders = \App\Models\Order::where('status', '0')->latest()->paginate(4);
+        $orders = \App\Models\Order::where('status', '0')->latest()->paginate(3);
         return view('admin.order.index', compact('orders'));
     }
 
@@ -18,6 +18,12 @@ class OrderController extends Controller
     {
         $orders = Order::where('id', $id)->first();
         return view('admin.order.view',  compact('orders'));
+    }
+
+     public function vieworderhistory($id) 
+    {
+        $orders = Order::where('id', $id)->first();
+        return view('admin.order.viewhistory',  compact('orders'));
     }
 
     public function updateorder(Request $request, $id) 
@@ -31,7 +37,7 @@ class OrderController extends Controller
 
     public function orderhistory() 
     {
-        $orders = \App\Models\Order::where('status', '1')->latest()->paginate(4);
+        $orders = \App\Models\Order::where('status', '1')->latest()->paginate(3);
         return view('admin.order.history', compact('orders'));
     }
 }

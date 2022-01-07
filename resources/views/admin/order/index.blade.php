@@ -8,8 +8,8 @@
 
     <div class="card">
         <div class="col-12">
-            <h3><b>New Order List</b>
-                <a href="{{ 'order-history' }}" class="btn btn-primary float-right">View Order History</a>
+            <h3><b>List of Order Pending</b>
+                <a href="{{ 'orders/order-history' }}" class="btn btn-success float-right">View Order History</a>
             </h3>
             @php
                 $total = 0;
@@ -37,11 +37,11 @@
                                 <center>Total Price</center>
                             </b>
                         </th>
-                        <th>
+                        {{-- <th>
                             <b>
                                 <center>Status</center>
                             </b>
-                        </th>
+                        </th> --}}
                         <th>
                             <b>
                                 <center>Action</center>
@@ -71,12 +71,12 @@
                             <td>
                                 <center>RM {{ $item->total_price }} </center>
                             </td>
-                            <td>
+                            {{-- <td>
                                 <center>{{ $item->status == '0' ? 'Pending' : 'Completed' }} </center>
-                            </td>
+                            </td> --}}
                             <td>
                                 <center>
-                                    <a href="{{ url('admin/view-order/' . $item->id) }}" class="btn btn-primary">View</a>
+                                    <a href="{{ url('orders/view-order/' . $item->id) }}" class="btn btn-primary">View</a>
                                 </center>
                             </td>
                         </tr>
