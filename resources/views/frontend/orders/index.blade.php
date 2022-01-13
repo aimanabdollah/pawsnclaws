@@ -38,6 +38,9 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>
+                                        <center>Order ID
+                                    </th>
+                                    <th>
                                         <center>Order Date
                                     </th>
                                     {{-- <th>Tracking Number</th> --}}
@@ -66,6 +69,9 @@
                                     <tr>
                                         {{-- <td>{{ $count = $count + 1 }}.</td> --}}
                                         <td>{{ ($orders->currentPage() - 1) * $orders->perPage() + $loop->iteration }}.
+                                        </td>
+                                        <td>
+                                            <center>{{ $item->tracking_no }}</center>
                                         </td>
                                         <td>
                                             <center>{{ $date }}</center>

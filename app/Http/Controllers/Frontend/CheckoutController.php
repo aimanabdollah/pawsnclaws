@@ -46,7 +46,7 @@ class CheckoutController extends Controller
         $order->state = $request->input('state');
         $order->country = $request->input('country');
         $order->pincode = $request->input('pincode');
-        $order->tracking_no = 'ENT'.rand(1111,9999);
+        $order->tracking_no = 'OID'.rand(1111,9999);
 
         // To calculate total price
 
@@ -92,8 +92,6 @@ class CheckoutController extends Controller
             $user->country = $request->input('country');
             $user->pincode = $request->input('pincode');
             $user->update();
-      
-         
         }
 
         $cartitems = Cart::where('user_id', Auth::id())->get();

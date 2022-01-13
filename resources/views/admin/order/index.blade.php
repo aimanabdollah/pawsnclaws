@@ -9,7 +9,7 @@
     <div class="card">
         <div class="col-12">
             <h3><b>List of Order Pending</b>
-                <a href="{{ 'orders/order-history' }}" class="btn btn-success float-right">View Order History</a>
+                <a href="{{ 'orders/order-history' }}" class="btn btn-success float-right">View Order Completed</a>
             </h3>
             @php
                 $total = 0;
@@ -22,6 +22,11 @@
                 <thead>
                     <tr>
                         <th> <b>No. </b></th>
+                        <th>
+                            <b>
+                                <center>Order ID</center>
+                            </b>
+                        </th>
                         <th>
                             <b>
                                 <center>Order Date</center>
@@ -37,11 +42,11 @@
                                 <center>Total Price</center>
                             </b>
                         </th>
-                        {{-- <th>
+                        <th>
                             <b>
-                                <center>Status</center>
+                                <center>Payment Method</center>
                             </b>
-                        </th> --}}
+                        </th>
                         <th>
                             <b>
                                 <center>Action</center>
@@ -63,6 +68,9 @@
                         <tr>
                             <td>{{ ($orders->currentPage() - 1) * $orders->perPage() + $loop->iteration }}.</td>
                             <td>
+                                <center>{{ $item->tracking_no }}</center>
+                            </td>
+                            <td>
                                 <center>{{ $date }}</center>
                             </td>
                             <td>
@@ -71,9 +79,9 @@
                             <td>
                                 <center>RM {{ $item->total_price }} </center>
                             </td>
-                            {{-- <td>
-                                <center>{{ $item->status == '0' ? 'Pending' : 'Completed' }} </center>
-                            </td> --}}
+                            <td>
+                                <center>{{ $item->country }} </center>
+                            </td>
                             <td>
                                 <center>
                                     <a href="{{ url('orders/view-order/' . $item->id) }}" class="btn btn-primary">View</a>

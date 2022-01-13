@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="col-md-6 mb-2">
-                            <div class="border">{{ $orders->country }}</div>
+                            <div class="border">Malaysia</div>
                         </div>
 
                     </div>

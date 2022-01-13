@@ -99,11 +99,18 @@
                                         <option value="Terengganu">Terengganu</option>
                                     </select>
                                 </div>
-                                <div class="col-md-6 mt-3">
+                                {{-- <div class="col-md-6 mt-3">
                                     <label for="">Country</label>
                                     <input type="text" class="form-control" value="{{ Auth::user()->country }}"
                                         name="country" placeholder="Enter Country">
+                                </div> --}}
+
+                                <div class="col-md-6 mt-3">
+                                    <label for="">Country</label>
+                                    <input type="text" class="form-control" value="Malaysia" name="country"
+                                        placeholder="Enter Country">
                                 </div>
+
 
                             </div>
                         </div>
@@ -151,7 +158,56 @@
                             <h6>Total Amount: RM{{ number_format($total, 2) }}
                                 <hr>
 
-                                <button type="submit" class="btn btn-primary w-100">Place Order</button>
+                                <label for="" style="margin-bottom: 3%">Payment Method</label>
+
+                                <select class="form-select" name=country aria-label="Default select example"
+                                    style="margin-bottom: 3%">
+                                    <option selected>Please select a payment method</option>
+                                    <option value="Online Payment">Online Payment</option>
+                                    <option value="Cash On Delivery">Cash On Delivery</option>
+                                </select>
+
+
+                                {{-- <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="country" value="Online Payment">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Online Payment
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="country" value="Cash On Delivery">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Cash On Delivery
+                                    </label>
+                                </div> --}}
+
+
+
+
+
+                                {{-- <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                                aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Accordion Item #1
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">Placeholder content for this accordion, which is
+                                                intended to demonstrate the <code>.accordion-flush</code> class. This is the
+                                                first item's accordion body.</div>
+                                        </div>
+                                    </div>
+
+
+                                </div> --}}
+
+
+                                <button type="submit" class="btn btn-primary w-100" style="margin-top: 3%">Place
+                                    Order</button>
                         </div>
                     </div>
                 </div>

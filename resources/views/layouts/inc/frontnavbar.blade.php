@@ -13,6 +13,10 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="{{ url('/my-dashboard') }}">Dashboard</a>
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('category') }}">Category</a>
                 </li> --}}
@@ -70,16 +74,6 @@
                                         My Orders
                                     </a>
                                 </li>
-
-                                {{-- <li><a class="dropdown-item" href="{{ url('my-dashboard') }}">
-                                        Dashboard
-                                    </a>
-                                </li> --}}
-
-
-
-
-
 
 
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"

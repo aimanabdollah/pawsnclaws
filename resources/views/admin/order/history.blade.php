@@ -8,8 +8,8 @@
 
     <div class="card">
         <div class="col-12">
-            <h3><b>List of Order History</b>
-                <a href="{{ '/orders' }}" class="btn btn-success float-right">View New Order</a>
+            <h3><b>List of Order Completed</b>
+                <a href="{{ '/orders' }}" class="btn btn-success float-right">View Order Pending</a>
             </h3>
             @php
                 $total = 0;
@@ -22,6 +22,12 @@
                 <thead>
                     <tr>
                         <th> <b>No. </b></th>
+                        <th>
+                            <b>
+                                <center>Order ID</center>
+                            </b>
+                        </th>
+
                         <th>
                             <b>
                                 <center>Order Date</center>
@@ -39,7 +45,7 @@
                         </th>
                         <th>
                             <b>
-                                <center>Status</center>
+                                <center>Payment Method</center>
                             </b>
                         </th>
                         <th>
@@ -62,6 +68,10 @@
                         @endphp
                         <tr>
                             <td>{{ ($orders->currentPage() - 1) * $orders->perPage() + $loop->iteration }}.</td>
+
+                            <td>
+                                <center>{{ $item->tracking_no }}</center>
+                            </td>
                             <td>
                                 <center>{{ $date }}</center>
                             </td>
@@ -72,7 +82,7 @@
                                 <center>RM {{ $item->total_price }} </center>
                             </td>
                             <td>
-                                <center>{{ $item->status == '0' ? 'Pending' : 'Completed' }} </center>
+                                <center>{{ $item->country }} </center>
                             </td>
                             <td>
                                 <center>

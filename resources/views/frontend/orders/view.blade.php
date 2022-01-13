@@ -93,7 +93,7 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-control">{{ $orders->country }}</div>
+                                        <div class="form-control">Malaysia</div>
                                     </div>
 
                                 </div>

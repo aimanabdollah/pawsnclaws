@@ -103,6 +103,47 @@
 
 
                         </div>
+                        {{-- <div class="col-lg-12" style="margin-top: 3%">
+                            <div class="card card-stats" id="curve_chart" style="height: 300px"></div>
+                        </div> --}}
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-lg-6" style="margin-top: 3%">
+                                <div class="card card-stats" id="curve_chart" style="height: 300px"></div>
+                            </div>
+
+                            <div class="col-lg-6" style="margin-top: 3%">
+                                <div class="card card-stats" id="columnchart_values" style="height: 300px"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-lg-6" style="margin-top: 3%">
+                                <div class="ml-4">
+                                    <div class="card card-stats" id="barchart" style="height: 300px"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-6" style="margin-top: 3%">
+                                <div class="card card-stats" id="piechart" style="height: 300px"></div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+
+
 
 
 
@@ -124,5 +165,128 @@
 @section('scripts')
 
     <script>
+        // LINE CHART FOR TOTAL SALES BY MONTH
+
+        google.charts.load('current', {
+            packages: ['corechart', 'line']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Month', 'Amount'],
+                <?php echo $chartSales; ?>
+            ]);
+
+            var options = {
+                title: 'Total Spend by Month',
+                colors: ['purple'],
+                curveType: 'function',
+                hAxis: {
+                    title: 'Month'
+                },
+                vAxis: {
+                    title: 'Spend in RM'
+                }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+
+        google.charts.load("current", {
+            packages: ['corechart']
+        });
+        google.charts.setOnLoadCallback(orderstate);
+
+        function orderstate() {
+            var data = google.visualization.arrayToDataTable([
+                ['State', 'No. of Order'],
+                <?php echo $chartOrder; ?>
+            ]);
+
+            var options = {
+                title: "No. Of Order by Month",
+                colors: ['orange'],
+                bar: {
+                    groupWidth: "95%"
+                },
+                legend: {
+                    position: "none"
+                },
+                hAxis: {
+                    title: 'Month',
+
+                },
+                vAxis: {
+                    title: 'No. of Order'
+                }
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(data, options);
+        }
+
+
+        google.charts.load('current', {
+            packages: ['corechart', 'bar']
+        });
+        google.charts.setOnLoadCallback(topProduct);
+
+        function topProduct() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Product Name', 'No. of Bought'],
+                <?php echo $chartProduct; ?>
+            ]);
+
+            var options = {
+                title: 'Top 3 Most Bought Product',
+                colors: ['green'],
+                chartArea: {
+                    width: '50%'
+                },
+                hAxis: {
+                    title: 'Amount',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Product Name'
+                }
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('barchart'));
+
+            chart.draw(data, options);
+        }
+
+
+
+        // PIE CHART FOR ORDER BY PAYMENT TYPE
+
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawpieChart);
+
+        function drawpieChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Payment Type', 'Amount'],
+                <?php echo $chartPayment; ?>
+
+            ]);
+
+            var options = {
+                title: 'No. of Order Based On Payment Type',
+                is3D: true,
+
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
     </script>
 @endsection
