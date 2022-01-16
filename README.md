@@ -21,8 +21,12 @@ The purpose of this project is to build an e-Commerce system for pet shop which 
     <li>Order Management</li>
     <li>Dashboard Reporting</li>
 </ul>
+
+## Quick Demo
+<div align="center">
+  <img src="public/assets/images/demo.gif">
+</div>
         
-    
 ### Group Members
 
 <ul>
