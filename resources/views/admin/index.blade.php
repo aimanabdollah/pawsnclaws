@@ -108,13 +108,23 @@
                 </div>
 
 
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="card card-stats">
                         <center>
                             <div id="chart_div2" style="height: 300px;"></div>
                         </center>
                     </div>
                 </div>
+
+
+                <div class="col-lg-6">
+                    <div class="card card-stats" id="avgspend_values" style="height: 300px"></div>
+                </div>
+
+
+                {{-- <div class="col-lg-6">
+                    <div id="chart_map" style="height: 300px;"></div>
+                </div> --}}
 
             </div>
 
@@ -164,8 +174,9 @@
                     ]);
 
                     var options = {
-                        title: 'No. of Sales by Month',
-                        colors: ['purple'],
+                        title: 'Amount of Sales by Month',
+                        curveType: 'function',
+                        // colors: ['purple'],
                         // colors: '#d799ae',
                         //     // chartArea: {
                         //          backgroundColor: '#C7CEEA'
@@ -372,7 +383,7 @@
                     };
 
                     var classicOptions = {
-                        width: 900,
+
                         series: {
                             0: {
                                 targetAxisIndex: 0
@@ -409,6 +420,131 @@
 
                     drawClassicChart();
                 };
+
+
+
+                // BAR CHART FOR AVG SPEND
+
+
+                google.charts.load("current", {
+                    packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(avgspend);
+
+                function avgspend() {
+                    var data = google.visualization.arrayToDataTable([
+                        ['Name', 'Average of Spend'],
+                        <?php echo $chartAvg; ?>
+                    ]);
+
+                    var options = {
+                        title: "Average of Total Spend by Customer",
+                        colors: ['purple'],
+                        bar: {
+                            groupWidth: "95%"
+                        },
+                        legend: {
+                            position: "none"
+                        },
+                        hAxis: {
+                            title: '',
+
+                        },
+                        vAxis: {
+                            title: 'Average of Total Spend'
+                        }
+                    };
+                    var chart = new google.visualization.ColumnChart(document.getElementById("avgspend_values"));
+                    chart.draw(data, options);
+                }
+
+
+                // google.load('visualization', '1', {
+                //     'packages': ['geochart']
+                // });
+                // google.setOnLoadCallback(drawMarkersMap);
+
+                // function drawMarkersMap() {
+                //     var data = new google.visualization.DataTable();
+                //     data.addColumn('string', 'State');
+                //     data.addColumn('number', 'Data');
+                //     data.addRows([
+                //         [{
+                //             v: 'MY-14',
+                //             f: ' Wilayah Persekutuan Kuala Lumpur'
+                //         }, 42],
+                //         [{
+                //             v: 'MY-15',
+                //             f: ' Wilayah Persekutuan Labuan'
+                //         }, 57],
+                //         [{
+                //             v: 'MY-16',
+                //             f: ' Wilayah Persekutuan Putrajaya'
+                //         }, 38],
+                //         [{
+                //             v: 'MY-01',
+                //             f: ' Johor'
+                //         }, 82],
+                //         [{
+                //             v: 'MY-02',
+                //             f: ' Kedah'
+                //         }, 46],
+                //         [{
+                //             v: 'MY-03',
+                //             f: ' Kelantan'
+                //         }, 51],
+                //         [{
+                //             v: 'MY-04',
+                //             f: ' Melaka'
+                //         }, 72],
+                //         [{
+                //             v: 'MY-05',
+                //             f: ' Negeri Sembilan'
+                //         }, 16],
+                //         [{
+                //             v: 'MY-06',
+                //             f: ' Pahang'
+                //         }, 2],
+                //         [{
+                //             v: 'MY-08',
+                //             f: ' Perak'
+                //         }, 87],
+                //         [{
+                //             v: 'MY-09',
+                //             f: ' Perlis'
+                //         }, 29],
+                //         [{
+                //             v: 'MY-07',
+                //             f: ' Pulau Pinang'
+                //         }, 49],
+                //         [{
+                //             v: 'MY-12',
+                //             f: ' Sabah'
+                //         }, 26],
+                //         [{
+                //             v: 'MY-13',
+                //             f: ' Sarawak'
+                //         }, 94],
+                //         [{
+                //             v: 'MY-10',
+                //             f: ' Selangor'
+                //         }, 35],
+                //         [{
+                //             v: 'MY-11',
+                //             f: ' Terengganu'
+                //         }, 79],
+                //     ]);
+
+
+                //     var options = {
+                //         region: 'MY',
+                //         displayMode: 'regions',
+                //         resolution: 'provinces',
+                //     };
+
+                //     var chart = new google.visualization.GeoChart(document.getElementById('chart_map'));
+                //     chart.draw(data, options);
+                // };
             </script>
 
 

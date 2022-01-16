@@ -43,11 +43,11 @@
                                 <center>Total Price</center>
                             </b>
                         </th>
-                        <th>
+                        {{-- <th>
                             <b>
                                 <center>Payment Method</center>
                             </b>
-                        </th>
+                        </th> --}}
                         <th>
                             <b>
                                 <center>Action</center>
@@ -81,9 +81,9 @@
                             <td>
                                 <center>RM {{ $item->total_price }} </center>
                             </td>
-                            <td>
+                            {{-- <td>
                                 <center>{{ $item->country }} </center>
-                            </td>
+                            </td> --}}
                             <td>
                                 <center>
                                     <a href="{{ url('orders/view-orderhistory/' . $item->id) }}"

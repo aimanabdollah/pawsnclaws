@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function() {
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('my-dashboard', [UserController::class, 'dashboard']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
+
+    Route::get('invoice-order/{id}', [UserController::class, 'invoice']);
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {

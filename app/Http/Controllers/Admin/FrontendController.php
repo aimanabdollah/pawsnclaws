@@ -40,8 +40,8 @@ class FrontendController extends Controller
 
 
         // get linechart for total sales by month
-        $salesByMonth = DB::select(DB::raw('select DATE_FORMAT(created_at, "%Y-%m") AS day_date, SUM(orders.total_price) AS main_total, COUNT(*) 
-        AS total_orders FROM orders WHERE orders.created_at >= "2021-08-31 00:00:00" AND orders.created_at <= "2022-11-31 23:59:59" 
+        $salesByMonth = DB::select(DB::raw('select DATE_FORMAT(created_at, "%Y-%m") AS day_date, SUM(orders.total_price) AS main_total, CAST(AVG(orders.total_price) AS DECIMAL(10,2)) as avg_total,
+        COUNT(*) AS total_orders FROM orders WHERE orders.created_at >= "2021-07-31 00:00:00" AND orders.created_at <= "2022-11-31 23:59:59" 
         GROUP BY DATE_FORMAT(created_at, "%Y-%m") ORDER BY day_date ASC'));
 
         $data3 = "";
@@ -49,6 +49,8 @@ class FrontendController extends Controller
             $data3.="['".$val->day_date."', ".$val->main_total."],";
         }
         $chartSales = $data3;
+
+        // dd($salesByMonth);
 
         // get top 3 best selling product
         $topProduct = DB::select(DB::raw('select sum(o.qty) as total_sell, p.name as 
@@ -90,7 +92,7 @@ class FrontendController extends Controller
         $chartSpendCust = $data7;
 
         // get total order and total spend by customer
-        $orderSpend = DB::select(DB::raw('select CONCAT(fname ," " , lname) as name, count(user_id) as no_order, sum(total_price) as total_spend from orders group by user_id '));
+        $orderSpend = DB::select(DB::raw('select CONCAT(fname ," " , lname) as name, count(user_id) as no_order, sum(total_price) as total_spend, CAST(AVG(total_price) AS DECIMAL(10,2)) as avg_spend from orders group by user_id '));
 
         $data8 = "";
         foreach ($orderSpend as $val) {
@@ -98,8 +100,18 @@ class FrontendController extends Controller
         }
         $chartOS = $data8;
 
+         // get avg spend by one order for customer
+        $avgSpend = DB::select(DB::raw('select CONCAT(fname ," " , lname) as name, count(user_id) as no_order, CAST(AVG(total_price) AS DECIMAL(10,2)) as avg_spend from orders group by user_id '));
+
+        $data9 = "";
+        foreach ($orderSpend as $val) {
+            $data9.="['".$val->name."', ".$val->avg_spend."],";
+        }
+        $chartAvg = $data9;
+
+
     
-        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct', 'chartState', 'chartOrderCust', 'chartSpendCust', 'chartOS'));
+        return view('admin.index', compact('category', 'product', 'chartData', 'order', 'amt_sales', 'chartSales', 'chartProduct', 'chartState', 'chartOrderCust', 'chartSpendCust', 'chartOS', 'chartAvg'));
     }
 
   

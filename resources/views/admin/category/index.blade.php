@@ -54,7 +54,7 @@
                 <tbody>
                     <?php $counter = 0; ?>
 
-                    @foreach ($category as $item)
+                    @forelse ($category as $item)
                         <tr>
                             <td>{{ ($category->currentPage() - 1) * $category->perPage() + $loop->iteration }}.</td>
                             <td>
@@ -82,6 +82,7 @@
                                 </center>
                             </td>
                         </tr>
+
                     @endforeach
                 </tbody>
             </table>

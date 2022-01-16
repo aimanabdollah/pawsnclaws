@@ -8,10 +8,18 @@
 
     <div class="card">
         <div class="card-header">
-            <h3><b>Order View</b>
+            @php
+                $myvalue = $orders->created_at;
+                
+                $datetime = new DateTime($myvalue);
+                $date = $datetime->format('d-m-Y');
+                $time = $datetime->format('H:i');
+                
+            @endphp
+
+            <h3><b>Order ID: {{ $orders->tracking_no }} | Date: {{ $date }}</b>
                 <a href="{{ url('orders/order-history') }}" class="btn btn-primary float-right">Back</a>
             </h3>
-
             @php
                 $total = 0;
                 $count = 0;

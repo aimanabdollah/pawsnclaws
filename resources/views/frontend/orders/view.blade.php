@@ -38,6 +38,25 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            <div class="col-6">
+                                <h6>Order ID: {{ $orders->tracking_no }}</h6>
+                            </div>
+
+                            <div class="col-6">
+                                @php
+                                    $myvalue = $orders->created_at;
+                                    
+                                    $datetime = new DateTime($myvalue);
+                                    $date = $datetime->format('d-m-Y');
+                                    $time = $datetime->format('H:i');
+                                    
+                                @endphp
+                                <h6>Order Date: {{ $date }}</h6>
+                            </div>
+
+
+                            <hr>
+
                             <div class="col-md-6 order-details">
                                 <h4>Shipping Details</h4>
                                 <hr>

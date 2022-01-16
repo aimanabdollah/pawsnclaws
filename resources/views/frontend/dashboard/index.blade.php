@@ -35,7 +35,7 @@
                                 <div class="card card-stats bg-primary text-white">
                                     <div class="card-header card-header-danger card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">shopping_bag</i>
+                                            <i class="material-icons">shopping_cart</i>
                                         </div>
                                         <p class="card-category">Total Order</p>
                                         <h3 class="card-title">{{ $totalAllOrder }}</h3>
@@ -52,7 +52,9 @@
                                 <div class="card card-stats bg-danger text-white">
                                     <div class="card-header card-header-danger card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">shopping_bag</i>
+                                            <i class="material-icons"><span class="material-icons">
+                                                    pending_actions
+                                                </span></i>
                                         </div>
                                         <p class="card-category">Order Pending</p>
                                         <h3 class="card-title">{{ $totalOrderPending }}</h3>
@@ -70,7 +72,7 @@
                                 <div class="card card-stats bg-success text-white">
                                     <div class="card-header card-header-danger card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">shopping_bag</i>
+                                            <i class="material-icons">assignment_turned_in</i>
                                         </div>
                                         <p class="card-category">Order Completed</p>
                                         <h3 class="card-title">{{ $totalOrderCompleted }}</h3>
@@ -88,7 +90,7 @@
                                 <div class="card card-stats bg-secondary text-white">
                                     <div class="card-header card-header-danger card-header-icon">
                                         <div class="card-icon">
-                                            <i class="material-icons">shopping_bag</i>
+                                            <i class="material-icons">payments</i>
                                         </div>
                                         <p class="card-category">Total Spend</p>
                                         <h3 class="card-title">RM {{ $totalSpend }}</h3>
@@ -174,19 +176,23 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Month', 'Amount'],
+                ['Month', 'Total Spend', 'Average Order Value'],
                 <?php echo $chartSales; ?>
             ]);
 
             var options = {
-                title: 'Total Spend by Month',
-                colors: ['purple'],
-                curveType: 'function',
+                title: 'Total Spend and Average Order Value by Month',
+
                 hAxis: {
                     title: 'Month'
                 },
                 vAxis: {
                     title: 'Spend in RM'
+                },
+                animation: {
+                    "startup": true,
+                    duration: 5000,
+                    easing: 'out'
                 }
             };
 
@@ -210,6 +216,11 @@
             var options = {
                 title: "No. Of Order by Month",
                 colors: ['orange'],
+                animation: {
+                    "startup": true,
+                    duration: 5000,
+                    easing: 'out'
+                },
                 bar: {
                     groupWidth: "95%"
                 },
@@ -243,6 +254,11 @@
 
             var options = {
                 title: 'Top 3 Most Bought Product',
+                animation: {
+                    "startup": true,
+                    duration: 5000,
+                    easing: 'out'
+                },
                 colors: ['green'],
                 chartArea: {
                     width: '50%'
@@ -273,15 +289,14 @@
         function drawpieChart() {
 
             var data = google.visualization.arrayToDataTable([
-                ['Payment Type', 'Amount'],
-                <?php echo $chartPayment; ?>
+                ['Order Status', 'No. of Order'],
+                <?php echo $chartStatus; ?>
 
             ]);
 
             var options = {
-                title: 'No. of Order Based On Payment Type',
+                title: 'No. of Order Based On Order Status',
                 is3D: true,
-
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));

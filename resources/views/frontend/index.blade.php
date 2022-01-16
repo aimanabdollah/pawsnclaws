@@ -10,7 +10,7 @@
     <div class="py-5">
         <div class="container">
             <div class="row">
-                <h2>Featured Product<a href="/product"><button class="btn btn-success float-end"> See All
+                <h2>Latest Product<a href="/product"><button class="btn btn-success float-end"> See All
                             Product</button></a> </h2>
                 <div class="owl-carousel featured_carousel owl-theme">
                     @foreach ($featured_products as $prod)
@@ -31,11 +31,11 @@
 
 
                                         @if ($prod->selling_price > 0)
-                                            <h5><span style="margin:3px;"
-                                                    class="badge rounded-pill bg-danger float-start"><s>RM{{ $prod->original_price }}</s></span>
+                                            <h5><span style="margin:3px"
+                                                    class="badge rounded-pill bg-info text-dark float-start"><s>RM{{ $prod->original_price }}</s></span>
                                             </h5>
                                             <h5><span style="margin:3px;"
-                                                    class="badge rounded-pill bg-info text-dark float-start">RM{{ number_format($price_after_discount, 2) }}</span>
+                                                    class="badge rounded-pill bg-danger float-start">RM{{ number_format($price_after_discount, 2) }}</span>
                                             </h5>
                                             <h5><span style="margin:3px;"
                                                     class="badge rounded-pill bg-warning text-dark float-end">{{ number_format($prod->selling_price, 0) }}%

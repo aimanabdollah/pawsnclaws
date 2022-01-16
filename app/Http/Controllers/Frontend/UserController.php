@@ -22,6 +22,12 @@ class UserController extends Controller
         return view('frontend.orders.view', compact('orders'));
     }
 
+    public function invoice($id)
+    {
+        $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
+        return view('frontend.orders.invoice', compact('orders'));
+    }
+
     public function dashboard()
     {
 
@@ -40,14 +46,16 @@ class UserController extends Controller
 
 
         $salesByMonth = DB::table('orders')
-                   ->select('user_id', DB::raw('DATE_FORMAT(created_at, "%Y-%m") AS day_date, SUM(orders.total_price) AS main_total, COUNT(*) AS total_orders'))
+                   ->select('user_id', DB::raw('DATE_FORMAT(created_at, "%Y-%m") AS day_date, SUM(orders.total_price) AS main_total,
+                   CAST(AVG(orders.total_price) AS DECIMAL(10,2)) as avg_total, COUNT(*) AS total_orders'))
                    ->where('user_id', $user)
                    ->groupBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m") ORDER BY day_date ASC'))
                    ->get();
 
+
         $data1 = "";
         foreach ($salesByMonth as $val) {
-            $data1.="['".$val->day_date."', ".$val->main_total."],";
+            $data1.="['".$val->day_date."', ".$val->main_total.", ".$val->avg_total."],";
         }
         $chartSales = $data1;
 
@@ -89,15 +97,17 @@ class UserController extends Controller
 
 
         $orderStatus = DB::table('orders')
-            ->select('user_id', 'status', DB::raw('COUNT(status) AS order_status'))
+            ->select('user_id', 'status', DB::raw('IF(status=0, "Pending", "Completed") AS order_status, COUNT(status) AS no_order'))
             ->where('user_id', $user)
             ->groupBy(DB::raw('status'))
             ->get();
 
+        // dd($orderStatus);
+
         
         $data5 = "";
         foreach ($orderStatus as $val) {
-            $data5.="['".$val->status."', ".$val->order_status."],";
+            $data5.="['".$val->order_status."', ".$val->no_order."],";
         }
         $chartStatus = $data5;
 
@@ -105,6 +115,6 @@ class UserController extends Controller
         // dd($chartStatus);
 
 
-        return view('frontend.dashboard.index', compact('totalOrderPending', 'totalOrderCompleted', 'totalSpend', 'totalAllOrder', 'chartSales', 'chartOrder', 'chartProduct', 'chartPayment'));
+        return view('frontend.dashboard.index', compact('totalOrderPending', 'totalOrderCompleted', 'totalSpend', 'totalAllOrder', 'chartSales', 'chartOrder', 'chartProduct', 'chartStatus'));
     }
 }

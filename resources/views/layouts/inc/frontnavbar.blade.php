@@ -15,14 +15,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="{{ url('/my-dashboard') }}">Dashboard</a>
+                    <a class="nav-link active " aria-current="page" href="{{ url('/my-dashboard') }}">Dashboard</a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ url('category') }}">Category</a>
                 </li> --}}
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <li class="nav-item dropdown active">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Category
                     </a>
@@ -40,11 +40,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('product') }}">Product</a>
+                    <a class="nav-link active" href="{{ url('product') }}">Product</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('cart') }}">Cart</a>
+                    <a class="nav-link active" href="{{ url('cart') }}">Cart</a>
 
                 </li>
 
@@ -53,19 +53,19 @@
                     @guest
                         @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>

@@ -32,6 +32,7 @@
                     <div class="col-md-8">
                         <h2 class="mb-0">
                             {{ $products->name }}
+
                             {{-- <span class="badge rounded-pill bg-success float-end">{{ $products->qty }} Left!</span> --}}
                             {{-- @if ($products->selling_price > 0)
                                 <label style="font-size: 16px;"

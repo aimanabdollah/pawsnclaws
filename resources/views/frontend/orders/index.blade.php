@@ -87,6 +87,9 @@
                                             <center>
                                                 <a href="{{ url('view-order/' . $item->id) }}"
                                                     class="btn btn-primary">View</a>
+
+                                                <a href="{{ url('invoice-order/' . $item->id) }}"
+                                                    class="btn btn-success">Invoice</a>
                                             </center>
                                         </td>
                                     </tr>
