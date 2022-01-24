@@ -29,7 +29,7 @@
                 <div class="col-md-7">
                     <div class="card">
                         <div class="card-body">
-                            <h6>Customer Details</h6>
+                            <h6>Shipping Details</h6>
                             <hr>
                             <div class="row checkout-form">
                                 <div class="col-md-6">
@@ -158,14 +158,80 @@
                             <h6>Total Amount: RM{{ number_format($total, 2) }}
                                 <hr>
 
-                                <label for="" style="margin-bottom: 3%">Payment Method</label>
+                                <h6 style="margin-bottom: 3%">Payment Details
+                                    <div class="float-end">
+                                        <i class="fa fa-cc-mastercard" style="color:blue"></i>
+                                        <i class=" fa fa-cc-visa" style="color:black"></i>
+                                        <i class="fa fa-cc-discover" style="color:red"></i>
+                                        <i class="fa fa-cc-jcb" style="color:purple"></i>
+                                    </div>
+                                </h6>
 
-                                <select class="form-select" name=country aria-label="Default select example"
+
+
+
+
+
+                                <div class="row checkout-form">
+                                    <div class="col-sm-6">
+                                        <label for="">Full Name</label>
+                                        <input type="text" class="form-control" name="" placeholder="Card Holder's Name"
+                                            required>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="">No. Card</label>
+                                        <input type="text" class="form-control" name=""
+                                            placeholder="e.g. 1111-2222-3333-4444" required>
+                                    </div>
+
+                                    <div class="col-sm-4 mt-3">
+                                        <label for="">Exp Date</label>
+                                        <input type="number" class="form-control" name="" placeholder="Month" min="01"
+                                            max="12" step="1" required>
+                                        {{-- <select class="form-select" aria-label="Default select example" style="">
+                                            <option selected>Month</option>
+                                            <option value="">January</option>
+                                            <option value="">February</option>
+                                            <option value="">March</option>
+                                            <option value="">April</option>
+                                            <option value="">May</option>
+                                            <option value="">June</option>
+                                            <option value="">July</option>
+                                            <option value="">August</option>
+                                            <option value="">September</option>
+                                            <option value="">October</option>
+                                            <option value="">November</option>
+                                            <option value="">December</option>
+                                        </select> --}}
+                                    </div>
+
+                                    <div class="col-sm-4 mt-3">
+                                        <label for=""></label>
+                                        <input type="number" class="form-control" placeholder="Year" min="2010" max="2080"
+                                            step="1" required>
+
+
+
+
+                                    </div>
+
+                                    <div class="col-sm-4 mt-3">
+                                        <label for="">CVV</label>
+                                        <input type="number" class="form-control" name="" placeholder="e.g. 123" min="100"
+                                            step="1" required>
+                                    </div>
+
+                                </div>
+
+
+
+                                {{-- <select class="form-select" name=country aria-label="Default select example"
                                     style="margin-bottom: 3%">
                                     <option selected>Please select a payment method</option>
                                     <option value="Online Payment">Online Payment</option>
                                     <option value="Cash On Delivery">Cash On Delivery</option>
-                                </select>
+                                </select> --}}
 
 
                                 {{-- <div class="form-check">

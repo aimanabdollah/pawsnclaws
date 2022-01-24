@@ -77,28 +77,33 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
-    @endsection
 
-    @section('scripts')
-        <script>
-            $('.featured_carousel').owlCarousel({
-                loop: true,
-                margin: 15,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 4
-                    }
+    @include('layouts.inc.frontendfooter')
+
+@endsection
+
+
+@section('scripts')
+    <script>
+        $('.featured_carousel').owlCarousel({
+            loop: true,
+            margin: 15,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
                 }
-            });
-        </script>
+            }
+        });
+    </script>
 
-    @endsection
+@endsection

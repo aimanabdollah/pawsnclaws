@@ -63,7 +63,7 @@ class FrontendController extends Controller
         $chartProduct = $data4;
 
         // get top 5 order by state
-        $topState = DB::select(DB::raw('select state as state_name, count(state) as no_order from orders group by state order by count(state) DESC limit 5'));
+        $topState = DB::select(DB::raw('select state as state_name, count(state) as no_order from orders group by state order by count(state)'));
 
         $data5 = "";
         foreach ($topState as $val) {

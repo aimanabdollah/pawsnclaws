@@ -28,12 +28,12 @@
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Status</label>
+                        <label for="">Visible</label>
                         <input type="checkbox" {{ $category->status == '1' ? 'checked' : '' }} name="status">
                     </div>
 
                     <div class="col-md-6 mb-3">
-                        <label for="">Popular</label>
+                        <label for="">Featured</label>
                         <input type="checkbox" {{ $category->popular == '1' ? 'checked' : '' }} name="popular">
                     </div>
 

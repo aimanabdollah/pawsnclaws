@@ -175,5 +175,6 @@
             </div>
         </div>
     </div>
+    @include('layouts.inc.frontendfooter')
 
 @endsection

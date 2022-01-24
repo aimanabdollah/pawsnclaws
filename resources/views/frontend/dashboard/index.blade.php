@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-4">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -160,9 +160,10 @@
         </div>
     </div>
 
-
+    @include('layouts.inc.frontendfooter')
 
 @endsection
+
 
 @section('scripts')
 
@@ -176,12 +177,12 @@
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Month', 'Total Spend', 'Average Order Value'],
+                ['Month', 'Total Spend', 'Average Spend'],
                 <?php echo $chartSales; ?>
             ]);
 
             var options = {
-                title: 'Total Spend and Average Order Value by Month',
+                title: 'Total Spend and Average Spend for each Order by Month',
 
                 hAxis: {
                     title: 'Month'
@@ -191,7 +192,7 @@
                 },
                 animation: {
                     "startup": true,
-                    duration: 5000,
+                    duration: 4000,
                     easing: 'out'
                 }
             };
@@ -218,7 +219,7 @@
                 colors: ['orange'],
                 animation: {
                     "startup": true,
-                    duration: 5000,
+                    duration: 4000,
                     easing: 'out'
                 },
                 bar: {
@@ -256,7 +257,7 @@
                 title: 'Top 3 Most Bought Product',
                 animation: {
                     "startup": true,
-                    duration: 5000,
+                    duration: 4000,
                     easing: 'out'
                 },
                 colors: ['green'],
@@ -268,7 +269,7 @@
                     minValue: 0
                 },
                 vAxis: {
-                    title: 'Product Name'
+                    title: ''
                 }
             };
 

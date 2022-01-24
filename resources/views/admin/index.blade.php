@@ -73,15 +73,6 @@
                 </div>
 
 
-                <div class="col-lg-6">
-                    <div class="card card-stats" id="piechart" style="height: 300px"></div>
-                </div>
-
-
-
-                <div class="col-lg-6">
-                    <div class="card card-stats" id="chart_div" style="height: 300px"></div>
-                </div>
 
 
                 <div class="col-lg-6">
@@ -92,8 +83,23 @@
 
 
                 <div class="col-lg-6">
-                    <div class="card card-stats" id="columnchart_values" style="height: 300px"></div>
+                    <div class="card card-stats" id="chart_div" style="height: 300px"></div>
                 </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-stats" id="piechart" style="height: 300px"></div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card card-stats" id="piechartOrder" style="height: 300px"></div>
+                </div>
+
+
+
+
+                {{-- <div class="col-lg-6">
+                    <div class="card card-stats" id="columnchart_values" style="height: 300px"></div>
+                </div> --}}
 
                 <div class="col-lg-6">
                     <div class="card card-stats">
@@ -150,10 +156,45 @@
                     var options = {
                         title: 'No. of Product by Category',
                         is3D: true,
-
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        }
                     };
 
                     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                    chart.draw(data, options);
+                }
+
+
+                // PIE CHART FOR ORDER BY STATE
+
+                google.charts.load('current', {
+                    'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawpieChartOrder);
+
+                function drawpieChartOrder() {
+
+                    var data = google.visualization.arrayToDataTable([
+                        ['Category', 'No.of Product'],
+                        <?php echo $chartState; ?>
+
+                    ]);
+
+                    var options = {
+                        title: 'No. of Order by State',
+                        is3D: true,
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        }
+                    };
+
+                    var chart = new google.visualization.PieChart(document.getElementById('piechartOrder'));
 
                     chart.draw(data, options);
                 }
@@ -181,6 +222,11 @@
                         //     // chartArea: {
                         //          backgroundColor: '#C7CEEA'
                         // },
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         hAxis: {
                             title: 'Month'
                         },
@@ -215,12 +261,17 @@
                         chartArea: {
                             width: '50%'
                         },
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         hAxis: {
                             title: 'Total Sell',
                             minValue: 0
                         },
                         vAxis: {
-                            title: 'Product Name'
+                            title: ''
                         }
                     };
 
@@ -247,6 +298,11 @@
                     var options = {
                         title: "Top 5 Most Order by State",
                         colors: ['orange'],
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         bar: {
                             groupWidth: "95%"
                         },
@@ -285,6 +341,11 @@
                     var options = {
                         title: 'Top 3 Most No. of Order by Customer ',
                         colors: ['#FF0000'],
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         chartArea: {
                             width: '50%'
                         },
@@ -321,6 +382,11 @@
                         title: 'Top 3 Most Total Spend by Customer ',
                         chartArea: {
                             width: '50%'
+                        },
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
                         },
                         hAxis: {
                             title: 'Total Spend',
@@ -393,6 +459,11 @@
                             }
                         },
                         title: 'Total Spend and Order by Customer',
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         vAxes: {
                             // Adds titles to each axis.
                             0: {
@@ -440,6 +511,11 @@
                     var options = {
                         title: "Average of Total Spend by Customer",
                         colors: ['purple'],
+                        animation: {
+                            "startup": true,
+                            duration: 4000,
+                            easing: 'out'
+                        },
                         bar: {
                             groupWidth: "95%"
                         },
