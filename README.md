@@ -26,6 +26,8 @@ The purpose of this project is to build an e-Commerce system for pet shop which 
 <div align="center">
   <img src="public/assets/images/demo.gif">
 </div>
+
+To visit our system, you can check out <a href="https://epawsnclaws.000webhostapp.com/" target="_blank">HERE</a>
         
 ### Group Members
 
