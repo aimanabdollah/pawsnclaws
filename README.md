@@ -29,8 +29,6 @@ Paws'n Claws as a pet shop, is currently facing challenges in managing their sal
 <div align="center">
   <img src="public/assets/images/demo.gif">
 </div>
-
-To visit our system, you can check out <a href="https://epawsnclaws.000webhostapp.com/" target="_blank">HERE</a>
         
 ### Group Members
 
